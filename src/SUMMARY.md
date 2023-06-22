@@ -1,3 +1,4 @@
 # Summary
 
-- [Chapter 1](./chapter_1.md)
+- [Introduction](./0-prelude.md)
+- [Chapter 1](./1-understand-prompt.md)

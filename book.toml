@@ -1,6 +1,6 @@
 [book]
 authors = ["Phodal Huang"]
-language = "en"
+language = "zh-cn"
 multilingual = false
 src = "src"
 title = "LLM with Software Development"
