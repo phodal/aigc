@@ -16,9 +16,10 @@
 
 # LLM 应用手册 - 应用开发篇
 
-- [基于流程的 AI 2.0 应用重写](./2-workflow-and-application-design.md)
-- [LLM 集成模式](./2-llm-intergration-patterns.md)
+- [开发 LLM 应用之前](./2-before-developing-llm-app.md)
+- [Workflow + AI 2.0](./2-workflow-and-application-design.md)
 - [DSL 驱动开发](./2-dsl-driven-development.md)
+- [LLM 集成模式](./2-llm-intergration-patterns.md)
 
 # LLM 应用手册 - 微调 + LLMOps篇
 
