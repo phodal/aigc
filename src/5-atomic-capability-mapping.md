@@ -11,6 +11,17 @@
 
 ![LLM Capability](images/llm-capability-mapping-dsl.png)
 
+
+比如说，在 Co-mate 的 REST API 治理场景下，我们使用的 LLM 能力包括了：
+
+- 分类：让 LLM 分析 API 文档，让我们后续根据 URI、HTTP Action、安全等几个不同的能力维度来选择适合的工具。
+- 逻辑推理：让 LLM 分析 API 文档的 URI Construction 部分，生成用于检查的 URI 正则表达式部分，以及适合于人类阅读的 by example 部分。当然了，也包含了其它场景之下的推理。
+- 提取：由 LLM 按 API 规范的不同维度来提取一些关键信息。
+- 分类：由 LLM 来总结哪些部分难以简单的通过代码总结，诸如于安全等不适合于所有的 API 场景。
+- ……
+
+由此构成了 “能力映射” 的左图部分，这种方式适用于不同的规范分解。尽管如此，对于当前方式来说，依然还有一系列的可优化的空间，诸如于对 security、misc 进行进一步的能力分解。
+
 在右侧，我们则构建了一个 Kotlin Typesafe DSL，以动态的加载到系统中（未来），每一个函数对应到一个 Rule。
 
 ```kotlin

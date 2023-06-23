@@ -20,6 +20,36 @@ EventStorming:
 
 常规 DSL，诸如于 JSON、YAML、XML 等，是一种用于描述数据的语言。
 
+于是，我们让 ChatGPT 帮我们设计了一个 DSL 来描述：帮我设计一个 DSL 来表示一个系统的处理流程。然后，得到了一个 DSL：
+
+```kotlin
+System("BlogSystem") {
+  Entities {
+    Blog { title: string, ..., comments: [Comment]? },
+    Comment { ...}
+  }
+  Operation {
+    Ops("CreateBlog", {
+        in: { title: string, description: string },
+        out: { id: number }
+        pre: title is unique and (title.length > 5 && title.length < 120)
+        post: id is not null
+    })
+  }
+  API {
+    Route(path: String, method: HttpMethod operation: Operation)
+  }
+}
+```
+
+它可以分析某一个场景的业务，基于这个业务做分析。在这个 DSL，反复让 ChatGPT 设计之后，勉强可以详细拆开任务：
+
+- Operation。通过 Ops 的输入、输出、先验条件、后验条件，我们可以构建出更准确的函数。
+- Entitiies。是可独立从 DSL 拆解出来的，并且与数据库结构是绑定的，所以可以用来做数据库设计（ChatGPT 设计了一个诡异的 []? 语法 ）。
+- API。API 其实对于编码的帮助是有限的，不过其最大的用处是用于自动化测试，用于确保 ChatGPT 的代码是正确的。
+
+所以，我们只需要拆解任务，并发送到各个管道里，再 merge 一下，就可能能得到一份可工作的代码。至于，前端部分，我们可以用类似的方式来设计。
+
 ## 流式 DSL
 
 由于 LLM 的 stream response 特性，我们可以设计 stream DSL 来处理它们。流式响应 DSL 是一种特殊的 DSL，它的特点是：
