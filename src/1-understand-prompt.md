@@ -1,9 +1,6 @@
 # 理解 Prompt：基于编程、绘画、写作的 AI 探索与总结
 
-
-就当前节点（2023.02.22）而言，我虽然研究过一段时间传统的机器学习，但是并不擅长深度学习等领域，所以很多 AI 领域相关的词汇，我是不擅长的，只为自己总结一下，方便在未来更新自己的认识。
-
-内容主要是结合我过去擅长的编程、写作、绘画展开的：
+这内容主要是结合我过去擅长的编程、写作、绘画展开的：
 
 1. 绘画：text 2 image。结合 Stable Diffusion 讲述一张图片的演化。
 2. 写作：chat 2 article。结合 ChatGPT 讲述围绕特定主题的内容创作。
@@ -11,19 +8,37 @@
 
 总体来说，**AI 相当于美国队长的实力，遇强则强，遇弱则弱**，关键其实在于 Prompt。所以，如何更好地完善 prompt，实现 prompt 工程就是：如何更好地使用 AI 的基础。
 
+![Prompt Enginneering](patterns/prompt-engine.svg)
+
 > Prompt 是一种文本输入方式，用于与自然语言处理模型（例如GPT）进行交互。Prompt 是一个短语或一句话，可以启动模型并产生与 Prompt 相关的输出。这个输出可以是一个单独的单词、一句话，或者是一段完整的段落。它可以控制模型的行为，使其产生特定的结果。
 
-所以，如何更好地完善 prompt，实现 prompt 工程就是：如何更好地使用 AI 的基础。所以，在这篇文章里，我将介绍：
+举个例子，对于一个语言模型，prompt 可以是 "The cat sat on the"，模型可以通过对接下来的词语进行预测，生成类似于 "mat"、"chair"、"sofa" 等不同的输出：
 
-1. 用 text 2 image 来展示如何演进 prompt
-2. 用 text 2 article 来展示充足 prompt 的优点
-3. 结合 GitHub Copilot 来实现 prompt 完成工作
+![The Cat](prompt-patterns/the-cast-sit-on.png)
 
-PS：感谢我老婆提供的照片。
+上图为 Stable Diffusion 生成 (Prompt: The cat sat on the , Steps: 30, Sampler: Euler a, CFG scale: 7, Seed: 234310862, Size: 512x512, Model hash: d8722b4a4d, Model: neverendingDreamNED_bakedVae)
+
+Prompt 在人工智能语言生成领域中扮演着重要的角色，因为它可以帮助模型更好地理解用户意图，并生成更准确、有意义的文本内容。 诸如于如下的 prompt
+
+> women back view without face, flowing dress, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, sun below the horizon, golden light over the water, hair sways gently, Chinese style clothes, black hair,
+
+可以在 Stable Diffusion 生成图片（配置了 negative prompt）：
+
+<table>
+  <tr>
+    <td><img src="./prompt-patterns/backview-new-1.png" width="256px" height="256px"></td>
+    <td><img src="./prompt-patterns/backview-new-2.png" width="256px" height="256px"></td>
+    <td><img src="./prompt-patterns/backview-new-3.png" width="256px" height="256px"></td>
+   </tr> 
+</table>
+
+所以，如何更好地完善 prompt，实现 prompt 工程就是：如何更好地使用 AI 的基础？
 
 ## 图形生成：如何描述一张照片？？
 
 人类需要思考第一个问题：如何描述一张照片？在不关心感受的情况下，我们关注于主体、背景、颜色、构图等。
+
+PS：感谢我老婆提供的照片。
 
 现在，我们脑海中出现一个场景：
 
@@ -324,11 +339,7 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 ### AI 生态不友好
 
-诸如于 PyTorch，以前是支持 ROCm 加速的：
-
-![ROCm](https://pytorch.org/assets/prompt/amd_rocm_blog.png)
-
-现在的版本不行了：https://pytorch.org/get-started/locally/ 。
+诸如于 PyTorch，以前是支持 ROCm 加速的，现在的版本不行了：https://pytorch.org/get-started/locally/ 。
 
 ## 本文相关资源
 
@@ -347,287 +358,3 @@ ControlNet 加强：
 
 - 模型：https://huggingface.co/lllyasviel/ControlNet
 - 预编译：https://huggingface.co/kohya-ss/ControlNet-diff-modules
-
-## Prompt 编程 Demo：引导 ChatGPT 创建语言与建模
-
-说了，这么多我们来看一个结合我之前设计的 DSL 示例，即 [Fklang](https://github.com/feakin/fklang)。
-
-### 阶段一：让 ChatGPT 与你学 DDD
-
-在 Fklang 中，我们采用下面的形式来表示 ContextMap：
-
-```yaml
-ContextMap TicketBooking {
-    Reservation -> Cinema;
-    Reservation -> Movie;
-    Reservation -> User;
-}
-```
-
-但是，自己设计这样的 DSL 太累了，可以让 ChatGPT 来设计。在你开始之前，需要确认一下  ChatGPT 中的 DDD、DSL、事件风暴等的概念是否与你理解的一致。
-
-第一个问题：`设计一个 DSL 来表示 DDD 里的 Context Map 。`
-
-```yaml
-ContextMap:
-    Subdomain { Name: [subdomain_name] }
-        [CollaboratesWith: [other_subdomain_name], ...]
-        [ConformistWith: [other_subdomain_name], ...]
-        [Antagonizes: [other_subdomain_name], ...]
-    ...
-```
-
-第二个问题：用这个 ContextMap DSL 对在线电影订票系统建模。对于其它问题也是相似的。
-
-第三个问题：设计一个 DSL 来描述事件风暴的 事件建模 吗？
-
-第四个问题：能用 事件建模的 DSL 来表示用户购票的流程吗？
-
-一旦，我们觉得设计跑歪了，就可以重新设计。如果下是生成的复杂的 DSL：
-
-```yaml
-EventStorming:
-    Domain { Name: "电影订票系统" }
-        Event { Name: "用户提交订单" }
-            Triggered By: "用户选择电影、场次、座位，确认订单"
-            Description: "用户提交订单，包括所选电影、场次、座位等信息"
-            Actors: ["用户"]
-            Action: "将用户提交的订单信息保存到订单数据库中"
-            Outcome: "订单状态被标记为已提交"
-```
-
-第五个问题……
-
-剩下的你都会了，不会的，可以问 ChatGPT。
-
-### 阶段二：完整设计 + DSL 生成
-
-第一个问题：能总结一下，我们这里用 DDD 设计 购票系统到落地代码的过程吗？
-
-第二个问题：能为每个过程，设计一个合理的 DSL 吗，并展示他们？
-
-展示一部分神奇的 DSL：
-
-```yaml
-generate java-code from-domain-model
-    target-package: com.example.movieticket.order
-    source-model: order-domain-model
-
-    service-mapper 订单服务映射
-        map-method: 查询电影
-        to-class: MovieRepository
-        to-method: findBySchedule
-
-        map-method: 查询座位
-        to-class: SeatRepository
-        to-method: findByRowAndColumnAndStatus
-```
-
-现在，有意思的地方来，有了上面的一系列 DSL 之后，我们就可以接入到代码系统中。
-
-### 阶段三：代码生成与低代码
-
-只要 ChatGPT 上下文能力足够强壮，或者支持 LoRA 式的插件模式，我们就能实现从需要到现有的任何系统中。
-
-第一个问题：为电影订票系统设计一个 DDD 风格 Java 工程的代码目录结构。
-
-第二个问题：结合 Spring 设计一下购票流程的 RESTful API
-
-……
-
-有点懒，就先这样吧。后面的部分，就可以结合 GitHub Copilot 去实现了。
-
-### 小结
-
-结合 Prompt 编程，低代码到了一定的成熟度，我们就可以发现更好玩的东西：实时的软件生成
-
-## 实时的软件生成：自然语言即 Prompt，Prompt 即代码
-
-实时软件生成核心思想是，通过算法和机器学习来自动生成代码，让计算机根据用户需求，快速生成符合要求的软件。这种技术能够自动化完成代码的编写、测试、发布等流程，大大缩短软件开发周期，降低了开发成本，提高了开发效率。
-
-当我们想构建这样一软件用于实时生成软件时，它需要具备以下的特征：
-
-### 特征 1：自然语言即语言，语言即软件
-
-即如上面的 Prompt 编程所述，可以通过设定层层转换，直接将需求直接转换为软件。
-
-### 特征 2：生成式的软件架构
-
-软件本身不需要架构，架构是 AI 自动生成和调整的。
-
-### 特征 3：自底向上生成
-
-现有的语言本身需要 REPL 环境、操作系统、编程语言、语言底层库、库等一系列软件，对于 AI 而言，他能学习这些通用能力，自操作系统底层一样，逐步往上构建出软件的运行环境，以及软件本身 。
-
-## 当前的挑战
-
-对于当前而言，我们还存在些挑战：
-
-- 现行组织架构难以支撑内部 ChatGPT。如内部权限、架构等的管理
-- 通用大模型无法满足。领域特定能力有限，需要构建 LoRA 以更好的支持。
-- 细节能力实现较差。在编程实现上，远不如 GitHub Copilot
-
-当然了，受限于个人能力，可能还有别的一些挑战。
-
-## 总结
-
-本文介绍了 Prompt 编程的特点和实时软件生成的核心思想。Prompt 编程是一种次序化的分解框架，可以让机器根据用户需求自动生成代码。实时软件生成技术可以大大提高软件生成的效率和质量，同时也让软件开发变得更加简单。然而，现有组织架构难以支撑内部 ChatGPT，上下文能力有限，细节能力实现较差，这些都是实现 Prompt 编程和实时软件生成的难点。
-
-
-# 如何利用好 AIGC ？从 AI 绘画的演进与 ChatGPT 现状出发
-
-PS：就本文的结论而言，我相信你已经或多或少的有所体会了。也因此，本文更多的是展现一个思考的过程，而不是一个纯粹的结论。
-
-> AIGC 是什么？它是指通过机器学习、自然语言处理等人工智能技术，让计算机自动生成文字、图像、音频、视频等各种类型的内容。它能够帮助企业和个人降低创作成本、提高生产效率、增强创意输出等。
-
-开始之前，先说结论：哪怕仅就当前的 AIGC 成熟度，我们都明白：**人类应该去做更高价值的事**，也因此在当前的工作模式上呈现的是，三步区：
-
-- 蓝图设计（人类）。 负责创意性的思考与设计工作，如场景、软件架构等。
-- 机械化生成（机器）。将创意借助工具或者人转换为 Prompt，然后交给 AIGC 生成。
-- 细节修复（人类）。对于 AIGC 生成不合理、不适宜法律法规等的地方，进行修改。
-
-因此，对于诸多**通用的大众领域**，人类这样的碳基生物而言，如果不能从思维框架来驾驭 AIGC。而对于细分领域来说，只要在足够卷的情况下，AIGC 也会给予我们更多的惊喜。
-
-与 ChatGPT 的黑盒相比，类似于 Stable Diffusion 白盒开源，可以让我们更了解 Prompt 应该如何编写？如何更好地利用 AIGC。所以，本文的第一部分就是从现有的 AI 绘画的变化来看，如何更好的利用 AIGC。而第二部分则是结合 ChatGPT 的现状来看，如何更好的利用 AIGC。
-
-## 如何构建高质量的 AI 图形：精准控线 + 个人模型
-
-注意：请在取得授权的情况下，进行个人模型的练习，避免侵犯个人肖像权。
-
-我们的例子，依旧是基于 Stable Diffusion，开源模型与开源软件才是人类的未来。太长不看图：
-
-![Stable Diffusion 概览](prompt/stable-diffusion-overview.png)
-
-对于一个绘画过程来说，我们可以通过如下的方式，逐步引导绘图应用：
-
-1. 编写详细的 Negative Prompt，以淘汰不合理的生成内容。
-2. ControlNet 作为基准骨架，引导最终效果，过滤不合理的图像。
-3. 训练与融合个人模型，以构建领域特定的用途。
-
-总的来说：过滤不合理的图像，就能提升生成质量。我们就可以，设计出初步符合需求（在不看 AI 画出来的手情况下）的框架性方案。
-
-### 严格化验收条件：Negative Prompt
-
-> Negative Prompt 会将模型的目标从一般的高概率生成样本转换为生成与负向提示不匹配的低概率样本，从而迫使模型更加关注图像的细节和特征，提高其生成的图像的质量和逼真度。
-
-我们的故事依旧可以从：`微笑的女孩探出火车窗外` 故事开开始，简单地翻译成英语，来作为我们的 prompt：`smiling girl leaning out the train window`。在只有 Prompt 的情况下，会生成各种奇怪的图形，所以我们需要添加 Negative Prompt。
-
-所以在 Stable Diffusion 里，我们就可以通过它来提升质量：
-
-![Negative](prompt/stable-diffusion-with-negative.jpeg)
-
-而从结果来看，模型与我们想要的图，还存在一定的距离。对于 ChatGPT 也是类似的，所以我们需要相似的模式：诸如于 `写一个不超过 800 字的作文`，又或者是 `写一个作文，要求如下：1. 不超过 800 字`。
-
-### 构架蓝图：ControlNet 精准控线
-
-> ControlNet 是一种神经网络结构，旨在通过添加额外条件来控制扩散模型。在特定场景下，ControlNet被用于生成类似建模效果（法线贴图）的中间图和相关的图像。这种技术可以被应用于多个领域，如骨骼绑定、精准控线、线稿上色、深度图结构透视精准重绘等。
-
-简单来说，在人像领域，通过手绘特定的姿势、从照片中解析等方式，创建一个人物姿势，绘制出来的图便采用类似的格式。如下图所示：
-
-![ControlNet](prompt/stable-diffusion-with-controlnet.jpeg)
-
-从形状和生成的效果来说，除了脸部等细节不是特定令人满意之外，基本能满足使用的需求。而在更好地机器加持下，我们能得到更高分辨率，就可以靠人工修复脸部的问题。
-
-而在写作场景之下，只要我们给了 ChatGPT 大纲，那么他就能帮助我们生成文章。唯一的问题是，我们不能添加上自己的写作风格、历史作品，否则我们可以更加容易使用这个作品。而在那之前，我们需要思考什么是我们的作品？什么是我们的风格？
-
-### 轻量小模型：DreamBooth 个人模型与风格化
-
-注意：请在取得授权的情况下，进行模型的练习与作品创作。除了 DreamBootb 还有其他工具可使用，但由于时间限制，我就没有展开进一步研究。
-
-> 融合个人模型是指将训练后的个人风格和特点融入到 AI 绘画模型中，使其生成的画作更贴近个人风格和需求，提高生成画作的个性化和定制化。
-
-诸如在 Stable Diffusion 中，我们可以用自己的头像结合 DreamBooth 等工具训练，以得到一个融合自己风格的模型。在二次元世界里，最常被使用的是 "个人头像"，以用于生成动漫或者 idol。效果如下：
-
-![DreamBooth](prompt/stable-diffusion-with-controlnet-dreambooth.jpeg)
-
-PS：在取得某人同意的情况下，放一张动画化的结果（当然了，取的是不像本人的照片）：
-
-![Final](prompt/stable-diffusion-hug8217.jpeg)
-
-在 Stable Diffusion 的模型尝试之后，我们可以发现：云 GPU + 模型可插件化 + 算力要求逐步下降之后，会使得个人的小模型会变成越来越普及，所以我训练的模型也只在云上跑了几分钟。
-
-### 完善与细化：局部绘制 —— InPaint 的手部修复
-
-众所周知，当前的 AI 绘图还存在诸多细节问题，比如手、脚等，因此需要一定的人类修复画师。又有一部分人自此成为了服务于 AI 的打工人。如下是使用 InPaint 修复手部时生产出来的，人类画师就需要从中挑选出合适的照片：
-
-![](prompt/try-fix-hands.jpeg)
-
-最后，总算，先找到一张可以凑合着交差的：
-
-![](prompt/hand-final-result.jpeg)
-
-除此，还可以选择对图形进行裁剪，或者使用 Photoshop 等工具进行重绘等。
-
-### 小小的总结：严格化验收条件 + 构架蓝图 + 轻量小模型 + 完善与细化
-
-要想清晰的表达自己的需求，我们需要：
-
-- **严格化的验收条件**，即通过 Prompt 描写需求，通过 Negative Prompt 排除异常
-- **表达构架蓝图**，即通过 ControlNet 创建所需要的内容骨架，控制
-- **轻量的领域小模型**，即通过 DreamBooth，结合灵活的架构模型，来丰富 AI 模型。
-- **完善与细化**，即通过 InPaint 对有缺陷的部分进行修复，如局部绘制。
-
-当然了，在 Stable Diffusion 里，还可以通过 Inpaint 等方式进行修复。
-
-## 个人 AI 策略：构架 + 磨炼 + 小模型
-
-在先前的两篇文章里，我们已经不断地在探索适合于个人的 AI 策略：
-
-- 《[基于编程、绘画、写作的 AI 探索与总结](https://github.com/phodal/ai-research/)》
-- 《[Prompt 编写模式：如何将思维框架赋予机器](https://github.com/phodal/prompt-patterns)》。
-
-对于我来说，我的 AI 策略大致是：
-
-- 强化构架能力。强化架构设计、软件设计、抽象设计等。
-- 构建小模型。在未来合适的时候，诸如于合适的开源 GPT 等。
-- 探索与磨炼技巧。探索更多的 AI 解决方案，如 Notion AI 等；持续探索 Prompt 模式等。
-
-对于修复与完善来说，由于 AI 本身是无法达到这么精细的，所以我的想法是**持续构建小工具**。
-
-### 策略 0：拥抱变化
-
-首先，我们要理解 AIGC 真的带来变化，尽管现今的 AI 并不能完整的代替我们，但是已经能大大提升效率。
-
-作为一个知名的 “开源挖抗” 作者，在我使用 GitHub Copilot 的初期，觉得这 TM（Trademark） 就是一个智障。而我适应了：**如何与智障沟通**之后，我悟了，我才是 ”智障“ —— 只有理解机器的 API 与工作方式，才能利用好机器。
-
-### 策略 1：强化构架能力
-
-AI 工具无法替代个人的感性思考和直觉，所以个人在设计过程是非常重要性的。
-
-强化设计是指通过 AI 技术释放个人的创造力，帮助个人在设计中实现更高效、更优质的创造成果。这个策略的核心在于使用 AIGC 工具来自动生成大量的创意元素，例如图像、文字、音频等，从而将创造的效率提高到一个新的水平。
-
-在实践中，个人可以通过以下方式强化自己的构架能力：
-
-- 持续学习新的设计理念和创意方法，不断拓展自己的知识面和视野。例如，了解一些新兴的设计趋势，学习如何将传统的设计元素与现代的技术手段相结合，从而创造出更有创意和张力的作品。
-- 坚持思考和探索，不断挑战自己的思维方式和想象力。通过不断思考和实践，将自己的思维方式和想象力逐渐转化为可操作的设计构架，从而在 AIGC 工具的帮助下实现更高效的创造。
-
-除此，我们还应该熟练掌握使用 AIGC 工具的方法，尤其是一些高级的特性。例如，对于文本生成任务，可以使用 Negative Prompt 等技巧提高生成的质量；对于图像生成任务，则可以使用 ControlNet 等技术实现更精准的控制。
-
-### 策略 2：构建领域小模型
-
-PS：此处需要持续寻找合适的工具，就当前而言，只有 AI 绘图领域是**相对比较成熟**（可用）的。
-
-每个人的知识面是不同的，知识体系也是不同的。因此，我们不能期望一个通用的大模型能够满足所有人的需求。相反，我们应该尝试构建适合自己领域的小模型。通过选择合适的数据集、算法和网络结构，我们可以快速训练出一个专门用于解决自己问题的小型模型。这个模型不需要太复杂，只需要满足自己的需求即可。这样可以提高模型的效率和准确度，并且减少训练时间和计算资源的消耗。
-
-例如，对于一个博客作者来说，可以使用 GPT-3 来帮助自己快速生成博客文章的开头或结尾段落，也可以通过训练自己的小模型，生成符合自己风格的文章内容。对于一名摄影师来说，可以通过构建小模型来辅助自己完成相册的排版、图像剪辑等工作。
-
-所以，对于而言，我有 900+ 的博客，从中训练出来的写作风格，大概是能像我的 —— 也存在不同时机的风格不一样的问题。
-
-### 策略 3：探索与磨炼技巧
-
-对于探索而言，也是最近才有时间和精力去探索，加入了公司的相关讨论群后，也获得了更多的输入。只是对于我来说，更多的是想把 AI 融入到日常事务中，以提升工作效率，所以也不想去创建微信群。
-
-对于技巧来说，其实更多的是要去理解 AI 是如何 work 的，并将这种模式整合到自己的思维方式里。
-
-除此，我们还可以思考如何将思维框架赋予 AI，以完成更闭环的工作。诸如于 GitHub Copilot 可以帮我们写代码，但是无法从宏观上理解业务问题、整体性的架构问题，生成的代码只是从局部考虑的。因此，我们需要通过不断地磨炼自己的技能和能力，来提高自己的综合素质和创造力。如我正在持续丰富的 [phodal/prompt-patterns](https://github.com/phodal/prompt-patterns) 也算是我的磨炼技巧。
-
-## 小结
-
-最后，再让 AI 总结一下四个策略：
-
-1. 拥抱变化，尽管人工智能并不能完全代替人类，但它已经能够大大提高效率。
-2. 强化构架能力，因为人工智能工具无法代替个人的感性思考和直觉。
-3. 构建领域小模型，可以快速训练出一个专门用于解决自己问题的小型模型。
-4. 探索与磨炼技巧，探索 AI 能力并持续构建小工具，来修复和完善自己的 AI 增强系统。
-
-结论，AI 在短期内还是智障，但是已经可以大大提升效率了。

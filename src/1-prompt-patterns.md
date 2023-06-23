@@ -1,33 +1,5 @@
 # Prompt 编写模式：如何将思维框架赋予机器
 
-如何理解 Prompt ？
-
-![Prompt Enginneering](patterns/prompt-engine.svg)
-
-> prompt 通常指的是一个输入的文本段落或短语，作为生成模型输出的起点或引导。prompt 可以是一个问题、一段文字描述、一段对话或任何形式的文本输入，模型会基于 prompt 所提供的上下文和语义信息，生成相应的输出文本。
-
-举个例子，对于一个语言模型，prompt 可以是 "The cat sat on the"，模型可以通过对接下来的词语进行预测，生成类似于 "mat"、"chair"、"sofa" 等不同的输出：
-
-![The Cat](prompt-patterns/the-cast-sit-on.png)
-
-上图为 Stable Diffusion 生成 (Prompt: The cat sat on the , Steps: 30, Sampler: Euler a, CFG scale: 7, Seed: 234310862, Size: 512x512, Model hash: d8722b4a4d, Model: neverendingDreamNED_bakedVae)
-
-Prompt 在人工智能语言生成领域中扮演着重要的角色，因为它可以帮助模型更好地理解用户意图，并生成更准确、有意义的文本内容。 诸如于如下的 prompt
-
-> women back view without face, flowing dress, edge of the sea, backview, back turned to the camera, upon the glow of the setting sun, sun below the horizon, golden light over the water, hair sways gently, Chinese style clothes, black hair,
-
-可以在 Stable Diffusion 生成图片（配置了 negative prompt）：
-
-<table>
-  <tr>
-    <td><img src="./prompt-patterns/backview-new-1.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/backview-new-2.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/backview-new-3.png" width="256px" height="256px"></td>
-   </tr> 
-</table>
-
-所以，质量看上去不错，但是可能不是你想要的。在 ChatGPT 则可以生成文本，质量上也是相似的，但是对于 AI 输出的文本来说，质量并没有这么直观。
-
 # 模式要素
 
 > 省去几千字
@@ -42,7 +14,7 @@ Prompt 在人工智能语言生成领域中扮演着重要的角色，因为它�
 - 结构图（Structure）：Prompt 模式的结构由一个输入文本和一个输出文本组成，它们被定义为模型的输入和输出。通常，输入文本包括一些关键词或短语，用于指定模型需要执行的任务或操作，而输出文本则是模型的预测结果。
 - 参考（References）：相关的文献包括 "GPT-3: Language Models are Few-Shot Learners"， "Zero-Shot Learning - A Comprehensive Evaluation of the Good, the Bad and the Ugly" 等。常用的机器学习框架包括 TensorFlow，PyTorch 等。
 
-# 核心思想：概念与类比
+## 核心思想：概念与类比
 
 开始之前，可以看一下这个问题示例：
 
