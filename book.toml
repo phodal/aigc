@@ -3,4 +3,14 @@ authors = ["Phodal Huang"]
 language = "zh-cn"
 multilingual = false
 src = "src"
-title = "LLM with Software Development"
+title = "大语言模型技术应用"
+
+[output.html]
+git-repository-url = "https://github.com/phodal/aigc"
+git-repository-icon = "fa-github"
+edit-url-template = "https://github.com/phodal/aigc/edit/master/{path}"
+site-url = "/"
+cname = "aigc.phodal.com"
+
+[output.wordcount]
+optional = true
