@@ -1,22 +1,8 @@
-# 工作流与应用设计
+# Workflow + AI 2.0
 
-## ChatFlow
+## 高质量流程
 
-**太长不读版**：
 
-我们抽取 ClickPrompt 出了的核心能力，构建了一个新的框架：ChatFlow —— 一个围绕 ChatGPT 构建的简易工作流引擎。简单来说：将做事的套路工具化，结合 AI 进行自动化。
-
-比如说，我们在开发 ClickPrompt 的过程中，结合了 ChatGPT 来完成一些工作。我们便尝试按工作流的方式与 ChatGPT 结合到一起，开发者只需要简单地 Click，就能使用 AI。工作流如下图所示：
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/89d484ed-5337-4a11-80d9-9356ef818dc2/Untitled.png)
-
-GitHub 项目： [https://github.com/prompt-engineering/chat-flow](https://github.com/prompt-engineering/chat-flow)
-
-在线示例：[https://www.clickprompt.org/zh-CN/click-flow/](https://www.clickprompt.org/zh-CN/click-flow/)   （由于精力有限，暂时没有部署在新的环境）
-
-技术栈：Next.js + React + Vercel + 低代码 + 工作流
-
-PS：如果你也有精力、有兴趣，擅长低代码与工作流，欢迎来加入我们，主导这个项目。
 
 ## ChatFlow 的诞生动机：人类设计高质量流程 + AI 完成细节
 
