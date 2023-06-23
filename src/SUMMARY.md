@@ -17,15 +17,15 @@
 # LLM 应用手册 - 应用开发模式
 
 - [开发 LLM 应用之前](./develop-llm-app-setup.md)
-- [Workflow + AI 2.0](./develop-llm-app-with-workflow.md)
-- [DSL 驱动开发](./dsl-driven-development.md)
-- [LLM 集成模式](./develop-llm-intergration-patterns.md)
+- [模式：高质量流程驱动](./develop-llm-app-with-workflow.md)
+- [模式：DSL 驱动开发](./dsl-driven-development.md)
+- [LLM 应用集成模式](./develop-llm-intergration-patterns.md)
 
 # LLM 应用手册 - 微调 + LLMOps篇
 
 - [微调之前的准备](./finetune-setup.md)
-- [微调的三阶六步：LLMOps](./finetune-llm-ops.md)
-- [BizDevOps + 微调](./finetune-bizdevops.md)
+- [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
+- [示例：BizDevOps](./finetune-bizdevops.md)
 
 # LLM 应用手册 - 训练篇（TBD）
 
