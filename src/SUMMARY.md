@@ -46,3 +46,7 @@
 # LLM 应用手册 - 名词解释篇
 
 - [LLM 名词解释](./6-llm-glossary.md)
+
+-----------
+
+[Contributors](misc/contributors.md)
