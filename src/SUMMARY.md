@@ -23,9 +23,9 @@
 
 # LLM 应用手册 - 微调 + LLMOps篇
 
-- [工程化微调](./3-engineering-finetune.md)
+- [微调之前的准备](./3-engineering-finetune.md)
+- [微调的三阶六步：LLMOps](./3-llm-ops.md)
 - [BizDevOps + 微调](./3-bizdevops-finetune.md)
-- [LLMOps](./3-llm-ops.md)
 
 # LLM 应用手册 - 训练篇（TBD）
 
