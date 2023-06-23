@@ -1,4 +1,4 @@
-# Prompt Patterns
+# Prompt Patterns 模板
 
 通常来说，一个易于 LLM 理解的模板可以由以为几部分构成：
 
