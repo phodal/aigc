@@ -1,5 +1,73 @@
 # 场景示例：GitHub Copilot 分析
 
+
+上个月在计划为 AutoDev 添加多语言支持时候，发现 GitHub Copilot 的插件功能是语言无关的（通过 plugin.xml 分析），便想研究一下它是如何使用
+TreeSitter 的。可惜的是，直到最近才有空，研究一下它是如何实现的。
+
+在探索的过程中，发现：Copilot 围绕上下文做了非常之多的工作，便想着写一篇文章总结一下。
+
+## GitHub Copilot 的上下文构建
+
+与 ChatGPT 相比，GitHub Copilot 的强大之处在于，它构建了足够多的上下文，结合其对 LLM 的训练（或微），可以写出非常精准的**生产级代码
+**。
+
+### Copilot 的可见上下文
+
+在肉眼可见的级别里，即我们自身的使用感受，我们可以发现 Copilot 不仅是读取当前文件的源码，而是一系列相关文件的源码，以构建更详细的上下文。
+
+简单可以先划分三个场景：
+
+- 当前文件。可以感知某个类的属性和方法，并做出自动填充。
+- 相近文件。如测试文件，可以知道被测类的信息，并自动编写用例。
+- 编辑历史（疑似）。即当我们以某种方式修改多个代码时，它也能识别出这个变化。
+
+而在未来，相信它会获取诸如项目上下文等信息，如 Gradle 依赖、NPM 依赖等信息，避免在打开的 tab 不够用的情况下，引用不存在的依赖。
+
+而针对于企业自身的 AI 编程工具而言，还可以结合服务上下文、业务上下文进行优化。
+
+### Copilot 的不可见过程
+
+结合网上的逆向工程资料，以及自己对代码的 debug 尝试，最后梳理了一个大致的 “四不像” （实在是懒得继续画）架构图。
+
+其作用如下：
+
+- 监听用户操作（IDE API ）。监听用户的 Run Action、快捷键、UI 操作、输入等，以及最近的文档操作历史。
+- IDE 胶水层（Plugin）。作为 IDE 与底层 Agent 的胶水层，处理输入和输出。
+- 上下文构建（Agent）。JSON RPC Server，处理 IDE 的各种变化，对源码进行分析，封装为 “prompt” （疑似） 并发送给服务器。
+- 服务端（Server）。处理 prompt 请求，并交给 LLM 服务端处理。
+
+而在整个过程中，最复杂的是在 Agent 部分，从上下文中构建出 prompt。
+
+### Copilot 的 Prompt 与上下文
+
+在 “公开” 的 Copilot-Explorer 项目的研究资料里，可以看到 Prompt 是如何构建出来的。如下是发送到的 prompt 请求：
+
+```kotlin
+{
+  "prefix": "# Path: codeviz\\app.py\n#....",
+  "suffix": "if __name__ == '__main__':\r\n    app.run(debug=True)",
+  "isFimEnabled": true,
+  "promptElementRanges": [
+    { "kind": "PathMarker", "start": 0, "end": 23 },
+    { "kind": "SimilarFile", "start": 23, "end": 2219 },
+    { "kind": "BeforeCursor", "start": 2219, "end": 3142 }
+  ]
+}
+```
+
+其中：
+
+- 用于构建 prompt 的 `prefix` 部分，是由 promptElements
+  构建了，其中包含了：`BeforeCursor`, `AfterCursor`, `SimilarFile`, `ImportedFile`, `LanguageMarker`, `PathMarker`, `RetrievalSnippet`
+  等类型。从几种 `PromptElementKind` 的名称，我们也可以看出其真正的含义。
+- 用于构建 prompt 的 `suffix` 部分，则是由光标所在的部分决定的，根据 tokens 的上限（2048 ）去计算还有多少位置放下。而这里的
+  Token 计算则是真正的 LLM 的 token 计算，在 Copilot 里是通过 Cushman002 计算的，诸如于中文的字符的 token
+  长度是不一样的，如： `{ context: "console.log('你好，世界')", lineCount: 1, tokenLength: 30 }` ，其中 context 中的内容的
+  length 为 20，但是 tokenLength 是 30，中文字符共 5 个（包含 `，` ）的长度，单个字符占的 token 就是 3。
+
+到这里，我算是解决我感兴趣的部分，Agent 包里的 TreeSitter 则用于分析源码，生成 `RetrievalSnippet` ，其中支持语言是 Agent
+自带的 `.wasm` 相关的包，诸如：Go、JavaScript、Python、Ruby、TypeScript 语言。
+
 ## Copilot 如何构建及时的 Token 响应
 
 为了提供更好的编程体验，代码自动补全工具需要能够快速响应用户的输入，并提供准确的建议。在 Copilot
@@ -41,3 +109,18 @@ tokens 的使用。
 
 未来，一定也会有滥用 token 程序，诸如于 AutoGPT 就是一直非常好的例子。
 
+## 结论
+
+GitHub Copilot 可以在有限的 token 范围内提供最相关的上下文信息，从而生成更准确、更有用的代码提示。这些策略提供了一定的灵活性，用户可以根据自己的需要来调整
+Copilot 的行为，从而获得更好的代码自动补全体验。
+
+我们跟进未来的路，依旧很长。
+
+Copilot 逆向工程相关资料：
+
+- [https://github.com/thakkarparth007/copilot-explorer](https://github.com/thakkarparth007/copilot-explorer)
+- [https://github.com/saschaschramm/github-copilot](https://github.com/saschaschramm/github-copilot)
+
+其它相关资料：
+
+- [https://github.com/imClumsyPanda/langchain-ChatGLM](https://github.com/imClumsyPanda/langchain-ChatGLM)
