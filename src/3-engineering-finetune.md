@@ -2,9 +2,8 @@
 
 作为纯纯的软件工程师，我们发现：学懂基本的 AI Prompt 原理与模式，不懂 LLM （大语言模型）算法，你也可以轻易驾驭 LoRA （Low-Rank Adaptation of LLM，即插件式的微调）训练。
 
-我和我的同事 [@tianweiliu](https://github.com/tianweiliu) 分别对 Meta 公司开源的 Llama 和清华大学开源的 GLM 进行 LoRA 训练。
-
-在花费了上千元（成本主要在 OpenAI API 调用和云 GPU —— 感谢 **AIOS club** 和 **OpenBayes 赞助**）的云费用之后，我们训练了 3 个 Lora：详细需求（用户故事）生成（**3k 数据**）、测试代码生成（**8k 数据**）、代码生成（**20k 数据**）。
+我和我的同事 [@tianweiliu](https://github.com/tianweiliu) 分别对 Meta 公司开源的 LLaMA 和清华大学开源的 GLM 进行 LoRA 训练。 在花费了上千元（成本主要在 OpenAI API 调用和云 GPU —— 感谢 **AIOS club** 和 **OpenBayes 赞助**）
+的云费用之后，我们训练了 3 个 Lora：详细需求（用户故事）生成（**3k 数据**）、测试代码生成（**8k 数据**）、代码生成（**20k 数据**）。
 
 仅就结论来说：LoRA 毫无疑问可以满足大部分的需求，特别是可以解决跨部门的数据共享问题。但是，考虑到数据的 **GIGO（垃圾进，垃圾出）**的基本现象，**如何构建高质量的数据是一大挑战？**
 
