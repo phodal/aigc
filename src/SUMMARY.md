@@ -37,6 +37,7 @@
     - [上下文工程](./5-context-engineering.md)
     - [语言接口](./5-language-interface.md)
 - [场景示例：ArchGuard Co-mate](./5-archguard-comate.md)
+- [场景示例：GitHub Copilot 分析](./5-github-copilot.md)
 
 # LLM 应用手册 - 自保篇
 
