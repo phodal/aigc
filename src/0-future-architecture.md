@@ -18,7 +18,7 @@
 
 对于，我来说，作为一个开源挖坑专家，我更习惯使用 GitHub 赠送的 Copilot，只需要配合注释、输入、输出、函数名，就可以大力了出奇迹。如下是 ClickPrompt 中的真实代码：
 
-```yaml
+```kotlin
 // 1. split promptMatch by comma
 // 2. match lora name by regex, lora full name: <lora:japaneseDollLikeness_v10:0.1>,
 // 3. push lora name to loras array
@@ -57,7 +57,7 @@ PS：有意思的是，你并不需要一个 BookService.java，因为 AI 也 �
 
 ```jsx
 // 创建数据库连接池
-...
+//...
 
 const getBookById = (req, res) => {
   const id = req.params.id; // 获取路径参数中的 id
@@ -74,10 +74,10 @@ const getBookById = (req, res) => {
 };
 
 // 创建路由器并挂载到根路径上
-...
+//...
 
 // 启动应用程序
-...
+//...
 ```
 
 如果我们认定了 AI 生成的代码是准确的，无需要人类去修改，那么我们就可以直接用上面的代码。
@@ -90,7 +90,7 @@ const getBookById = (req, res) => {
 const mysql = require('mysql');
 
 exports.handler = async (event, context) => {
-  ....
+//  ....
 }
 ```
 
@@ -144,7 +144,7 @@ exports.handler = async (event, context) => {
 
 ## 真实世界 2：产品经理 —— 现在，变更一个需求
 
-现在，我们来变更一个需求吧，过滤一下 “名书”，包含 xx 的不显示。那么，这个时候，我们就遇到一个难题了 —— 全自动编程，还是 ************************AI 辅助生成************************。
+现在，我们来变更一个需求吧，过滤一下 “名书”，包含 xx 的不显示。那么，这个时候，我们就遇到一个难题了 —— 全自动编程，还是 **AI 辅助生成**。
 
 ### 两种思路：新生成代码，还是手动改代码？
 
