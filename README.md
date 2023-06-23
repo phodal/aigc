@@ -1,7 +1,7 @@
 # 构筑大语言模型应用
 
 2023 年的上半年里，我（@phodal）和 Thoughtworks
-的同事们（如：@[tianweiliu](https://github.com/tianweiliu)、@[teobler](https://github.com/teobler)、@[mutoe](https://github.com/mutoe)）、
+的同事们（如：@[tianweiliu](https://github.com/tianweiliu)、@[teobler](https://github.com/teobler)、@[mutoe](https://github.com/mutoe) 等）、
 开源社区的同伴们（如：
 卷王@[CGQAQ](https://github.com/CGQAQ)、@[genffy](https://github.com/genffy)、 @[liruifengv](https://github.com/liruifengv)
 等)

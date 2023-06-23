@@ -1,4 +1,4 @@
-# 场景示例：ArchGuard Co-mate
+# LLM 应用架构：ArchGuard Co-mate
 
 # 原子能力映射
 

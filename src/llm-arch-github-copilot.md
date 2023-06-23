@@ -1,5 +1,4 @@
-# 场景示例：GitHub Copilot 分析
-
+# LLM 应用架构：GitHub Copilot 分析
 
 上个月在计划为 AutoDev 添加多语言支持时候，发现 GitHub Copilot 的插件功能是语言无关的（通过 plugin.xml 分析），便想研究一下它是如何使用
 TreeSitter 的。可惜的是，直到最近才有空，研究一下它是如何实现的。
