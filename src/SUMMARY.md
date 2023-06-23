@@ -3,9 +3,9 @@
 - [Introduction](./0-prelude.md)
 - [FAQ](./0-faq.md)
 - [程序员的 AI 2.0 新机遇](./0-ai-2.0.md)
-- [未来的编程](./0-future-architecture.md)
+- [思考未来的编程范式](./0-future-architecture.md)
     - [实时软件生成](./0-realtime-software-generation.md)
-    - [Unit Mesh 思考](./0-unit-mesh.md)
+    - [Unit Mesh 架构](./0-unit-mesh.md)
 
 # LLM 应用手册 - 基础篇：Prompt
 
