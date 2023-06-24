@@ -1,7 +1,8 @@
 # Summary
 
 - [前言](./prelude.md)
-- [FAQ](./faq.md)
+    - [Contributors](misc/contributors.md)
+    - [FAQ](./faq.md)
 - [程序员的 AI 2.0 新机遇](./future-ai-2.0.md)
 - [思考未来的编程范式](./future-architecture.md)
     - [实时软件生成](./future-realtime-software-generation.md)
@@ -46,7 +47,3 @@
 # LLM 应用手册 - 名词解释篇
 
 - [LLM 名词解释](./6-llm-glossary.md)
-
------------
-
-[Contributors](misc/contributors.md)
