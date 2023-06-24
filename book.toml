@@ -14,7 +14,7 @@ cname = "aigc.phodal.com"
 
 # cargo install mdbook-epub
 # mdbook-epub --standalone ./path/to/book/dir
-[output.epub]
+#[output.epub]
 
 # cargo install mdbook-pdf
 #[output.pdf]
