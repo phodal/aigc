@@ -80,7 +80,7 @@ ChatFlow 是一个基于自然语言处理（NLP）的流程编排工具，具�
 
 用于帮助系统设计人员快速理解用户需求并生成对应的系统设计方案。
 
-![](imags/chatflow-software-design.png)
+![](images/chatflow-software-design.png)
 
 ### ChatFlow 示例：写作的发散与探索
 

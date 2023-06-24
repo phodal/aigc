@@ -11,3 +11,7 @@ git-repository-icon = "fa-github"
 edit-url-template = "https://github.com/phodal/aigc/edit/master/{path}"
 site-url = "/"
 cname = "aigc.phodal.com"
+
+# cargo install mdbook-epub
+# mdbook-epub --standalone ./path/to/book/dir
+[output.epub]
