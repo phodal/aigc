@@ -1,4 +1,6 @@
-# 构筑大语言模型应用
+# 构筑大语言模型应用：真实世界应用案例
+
+> aka. Unlocking the Potential of Large Language Models: Real-World Use Cases
 
 2023 年的上半年里，我（@phodal）和 Thoughtworks
 的同事们（如：@[tianweiliu](https://github.com/tianweiliu)、@[teobler](https://github.com/teobler)、@[mutoe](https://github.com/mutoe) 等）、

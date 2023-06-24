@@ -3,7 +3,7 @@ authors = ["Phodal Huang"]
 language = "zh-cn"
 multilingual = false
 src = "src"
-title = "构筑大语言模型应用"
+title = "构筑大语言模型应用：真实世界应用案例"
 
 [output.html]
 git-repository-url = "https://github.com/phodal/aigc"
