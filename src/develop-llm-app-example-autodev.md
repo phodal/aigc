@@ -1,6 +1,8 @@
 # AI + DevOps 最后一公里：AutoDev 插件
 
-GitHub： [https://github.com/unit-mesh/auto-dev](https://github.com/unit-mesh/auto-dev)
+AI IDE 基本原理：没有魔法！全是 prompt! 🐶
+
+![AI IDE 基本原理](images/ai-ide-princinple.png)
 
 > AutoDev 是一款高度自动化的 AI 辅助编程工具。AutoDev 能够与您的需求管理系统（例如
 > Jira、Trello、Github Issue 等）直接对接。在 IDE 中，您只需简单点击，AutoDev
