@@ -19,4 +19,5 @@ cname = "aigc.phodal.com"
 # cargo install mdbook-pdf
 #[output.pdf]
 
+# cargo install --path .
 #[output.count]
