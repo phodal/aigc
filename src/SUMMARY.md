@@ -17,8 +17,8 @@
 
 # LLM 应用手册 - 应用开发模式
 
-- [开发 LLM 应用之前](./develop-llm-app-setup.md)
-- [模式：高质量流程驱动](./develop-llm-app-with-workflow.md)
+- [LLM 应用开发之前](./develop-llm-app-setup.md)
+- [模式：精细化流程](./develop-llm-app-with-workflow.md)
 - [模式：DSL 驱动开发](./dsl-driven-development.md)
 - [LLM 应用集成模式](./develop-llm-intergration-patterns.md)
 
