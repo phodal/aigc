@@ -10,10 +10,10 @@
 
 # LLM 应用手册 - 基础篇：Prompt
 
-- [Prompt 即代码](./prompt-as-code.md)
 - [理解 Prompt](./prompt-understand.md)
-- [Prompt Patterns](./patterns-prompt.md)
+- [Prompt 编写模式](./prompt-patterns.md)
     - [Prompt 模板](./prompt-template.md)
+- [模式：Prompt 即代码](./prompt-as-code.md)
 
 # LLM 应用手册 - 应用开发模式
 
@@ -26,7 +26,7 @@
 
 - [微调之前的准备](./finetune-setup.md)
 - [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
-- [示例：BizDevOps](./finetune-bizdevops.md)
+- [微调示例集：BizDevOps](./finetune-bizdevops.md)
 
 # LLM 应用手册 - 训练篇（TBD）
 
