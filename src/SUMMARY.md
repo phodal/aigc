@@ -31,6 +31,9 @@
 - [微调之前的准备](./finetune-setup.md)
 - [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
 - [微调示例集：AI + DevOps](./finetune-bizdevops.md)
+    - [数据准备：四种方法](./finetune-bizdevops-data.md)
+    - [示例：用户故事编写](./finetune-bizdevops-user-story.md)
+    - [示例：辅助代码生成](./finetune-bizdevops-codegen.md)
 
 # LLM 应用手册 - 训练篇（TBD）
 
