@@ -18,6 +18,7 @@
 # LLM 应用手册 - 应用开发模式
 
 - [LLM 应用开发之前](./develop-llm-app-setup.md)
+    - [设计 LLM 效果验证实验](./develop-llm-design-verification.md)
 - [模式：精细化流程](./develop-llm-app-with-workflow.md)
 - [模式：DSL 驱动开发](./dsl-driven-development.md)
 - [LLM 应用集成模式](./develop-llm-intergration-patterns.md)
