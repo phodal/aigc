@@ -44,6 +44,7 @@
     - [用户意图导向设计](./llm-arch-user-intent-oriented-design.md))
     - [上下文工程](./llm-arch-context-engineering.md)
     - [语言接口](./llm-arch-language-interface.md)
+- [LLM 应用架构设计](./llm-arch-design.md)
 - [LLM 应用架构：ArchGuard Co-mate](./llm-arch-archguard-comate.md)
 - [LLM 应用架构：GitHub Copilot 分析](./llm-arch-github-copilot.md)
 
