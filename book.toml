@@ -18,3 +18,4 @@ cname = "aigc.phodal.com"
 
 # cargo install mdbook-pdf
 #[output.pdf]
+[output.count]

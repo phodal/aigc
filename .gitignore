@@ -1,2 +1,7 @@
 book
 .idea
+
+
+# Added by cargo
+
+/target

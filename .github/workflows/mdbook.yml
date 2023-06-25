@@ -36,6 +36,7 @@ jobs:
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
           rustup update
+          cargo install --path .
           cargo install --version ${MDBOOK_VERSION} mdbook
 #          cargo install mdbook-epub
       - name: Setup Pages
