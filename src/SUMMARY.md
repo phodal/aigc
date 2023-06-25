@@ -22,12 +22,15 @@
 - [模式：精细化流程](./develop-llm-app-with-workflow.md)
 - [模式：DSL 驱动开发](./dsl-driven-development.md)
 - [LLM 应用集成模式](./develop-llm-intergration-patterns.md)
+- [LLM 应用示例：AI + DevOps](./develop-llm-app-example-ai-devops.md)
+    - [工具示例：AutoDev](./develop-llm-app-example-autodev.md)
+    - [面临的挑战](./aidevops-challenges.md)
 
 # LLM 应用手册 - 微调 + LLMOps篇
 
 - [微调之前的准备](./finetune-setup.md)
 - [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
-- [微调示例集：BizDevOps](./finetune-bizdevops.md)
+- [微调示例集：AI + DevOps](./finetune-bizdevops.md)
 
 # LLM 应用手册 - 训练篇（TBD）
 
