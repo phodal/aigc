@@ -19,6 +19,11 @@ GIGO（垃圾进，垃圾出）**的基本现象，**如何构建高质量的数
 - 对应输出：对于给定的输入，指示模型应该输出什么结果。
 - 少量演示（可选）：提供一些示例输入和对应的输出，以帮助模型更好地理解任务。
 
+![Instruction 格式](images/instruction-formatted.png)
+
+上图出自：《[A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)》
+
+
 诸如于：
 
 ```json
@@ -29,9 +34,15 @@ GIGO（垃圾进，垃圾出）**的基本现象，**如何构建高质量的数
 }
 ```
 
-![Instruction 格式](images/instruction-formatted.png)
+又或者是：
 
-上图出自：《[A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)》
+```json
+{
+  "instruction": "根据下面的内容创建用户故事",
+  "input": "jobs and employment:apply for jobs", 
+  "output": "用户故事：可以申请工作\n作为一个求职者\n我想在jobs and employment应用中申请工作\n以便于我能够提交我的简历，并且收到工作机会的通知。\n\nac 1: 求职者可以在jobs and employment应用中申请工作\n假设求职者已经登录应用\n当求职者点击“申请工作”按钮\n于是求职者可以提交简历，并且收到工作机会的通知。\n\nac 2: 求职者可以在jobs and employment应用中查看工作详情\n假设求职者已经登录应用\n当求职者点击某个工作的详情\n于是求职者可以查看工作的详细信息，包括职位描述、薪资待遇等。"
+}
+```
 
 ## Unit Mesh AI 辅助编程的试验
 
