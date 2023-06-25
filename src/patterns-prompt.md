@@ -40,7 +40,7 @@
 
 ## 特定指令（By specific）
 
-![Prompt Enginneering](patterns/specific.svg)
+![Prompt Enginneering](images/specific.svg)
 
 > 在这种模式下，我们给模型提供一些示例文本，模型需要生成与示例文本类似的文本。这种模式通常用于生成类似于给定示例的文本，例如自动生成电子邮件、产品描述、新闻报道等。示例文本可以是单个句子或多个段落，具体取决于任务的要求。
 
@@ -79,7 +79,7 @@
 
 ## 指令模板（Instruction Template）
 
-![Instruction](patterns/instruction.svg)
+![Instruction](images/instruction.svg)
 
 > 在这种模式下，我们给模型提供一些明确的指令，模型需要根据这些指令生成文本。这种模式通常用于生成类似于技术说明书、操作手册等需要明确指令的文本。指令可以是单个句子或多个段落，具体取决于任务的要求。
 
@@ -127,7 +127,7 @@
 
 ## 代理模式(By proxy)
 
-![Proxy](patterns/proxy.svg)
+![Proxy](images/proxy.svg)
 
 > Proxy 模式是指用户可以要求 ChatGPT 以特定的身份、角色或者身份扮演某个特定的人、角色或对象来生成回答。这种模式通常用于模拟某个特定人物的语言风格和语境，生成特定情境下的对话、回答或其他形式的文本。
 
@@ -170,7 +170,7 @@ Robot:
 执行 橙色代表什么
 ```
 
-![](patterns/cohere-PromptEngineering_Visual_8.svg)
+![](images/cohere-PromptEngineering_Visual_8.svg)
 
 上图为 Cohere AI 官网的示例图，对应的聊天记录如下：
 
@@ -185,7 +185,7 @@ Roish:
 
 ## 符号化模式
 
-![Symbol](patterns/prompt-symbol-pattern.svg)
+![Symbol](images/prompt-symbol-pattern.svg)
 
 > 符号化方法通常通过定义符号、符号之间的关系以及基于这些关系的规则来表示知识。
 
@@ -260,15 +260,15 @@ TODO：这里需要给出更精准的定义，如何让 ChatGPT 做到？
 
 <table>
   <tr>
-    <td><img src="./prompt-patterns/openpose-1.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/openpose-gen-1.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/openpose-gen-2.png" width="256px" height="256px"></td>
+    <td><img src="images/openpose-1.png" width="256px" height="256px"></td>
+    <td><img src="images/openpose-gen-1.png" width="256px" height="256px"></td>
+    <td><img src="images/openpose-gen-2.png" width="256px" height="256px"></td>
    </tr> 
 </table>
 
 在 GitHub Copilot，我们可以通过设置输入和输出，结合函数名三个要素，Copilot 就能生成大致准确的代码：
 
-![GitHub Copilot 示例](prompt-patterns/github-copilot-dir-sample.png)
+![GitHub Copilot 示例](images/github-copilot-dir-sample.png)
 
 而在必要的情况下，添加一下注释就能更完整了：
 
@@ -316,7 +316,7 @@ ControlNet 是一种神经网络结构，通过添加额外的条件来控制扩
 
 如在 ChatGPT 中对于自举的理解是不符合我们这里的需求：
 
-![Bootstrap](prompt-patterns/compiler-bootstrap.png)
+![Bootstrap](images/compiler-bootstrap.png)
 
 第一步，定义
 
@@ -330,11 +330,11 @@ ControlNet 是一种神经网络结构，通过添加额外的条件来控制扩
 
 > 那么，抽象一下我们新定义的自举？
 
-![总结](prompt-patterns/summarize.png)
+![总结](images/summarize.png)
 
 最后一问：
 
-![自举](prompt-patterns/human-bootstrap.png)
+![自举](images/human-bootstrap.png)
 
 PS：mmp，他一定是故意的。
 
@@ -409,13 +409,13 @@ console.log(result);
 
 如下图所示：
 
-![Bootstrap](patterns/bootstrapping.png)
+![Bootstrap](images/bootstrapping.png)
 
 TODO：重新解释，上图出自：《[Bootstrapping in Compiler Design](https://www.geeksforgeeks.org/bootstrapping-in-compiler-design/)
 
 先看例子 1：文章
 
-![](prompt-patterns/chatgpt-bootstrap-article.png)
+![](images/chatgpt-bootstrap-article.png)
 
 
 例子 2：Wula 2.0
@@ -424,7 +424,7 @@ TODO：重新解释，上图出自：《[Bootstrapping in Compiler Design](https
 > wula：创作一个新游戏名为 muji，并解释一下这个游戏："""类似于 wula，可以做简单的图形计算，如体积、面积等。这个游戏还能把解决过程解释清楚，拥有有可运行的 Python 代码，最后的输出结果是一篇文章。"""
 ```
 
-![Muji Sample](prompt-patterns/wula-muji.png)
+![Muji Sample](images/wula-muji.png)
 
 ## 拆解模式
 

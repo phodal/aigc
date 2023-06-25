@@ -8,13 +8,13 @@
 
 总体来说，**AI 相当于美国队长的实力，遇强则强，遇弱则弱**，关键其实在于 Prompt。所以，如何更好地完善 prompt，实现 prompt 工程就是：如何更好地使用 AI 的基础。
 
-![Prompt Enginneering](patterns/prompt-engine.svg)
+![Prompt Enginneering](images/prompt-engine.svg)
 
 > Prompt 是一种文本输入方式，用于与自然语言处理模型（例如GPT）进行交互。Prompt 是一个短语或一句话，可以启动模型并产生与 Prompt 相关的输出。这个输出可以是一个单独的单词、一句话，或者是一段完整的段落。它可以控制模型的行为，使其产生特定的结果。
 
 举个例子，对于一个语言模型，prompt 可以是 "The cat sat on the"，模型可以通过对接下来的词语进行预测，生成类似于 "mat"、"chair"、"sofa" 等不同的输出：
 
-![The Cat](prompt-patterns/the-cast-sit-on.png)
+![The Cat](images/the-cast-sit-on.png)
 
 上图为 Stable Diffusion 生成 (Prompt: The cat sat on the , Steps: 30, Sampler: Euler a, CFG scale: 7, Seed: 234310862, Size: 512x512, Model hash: d8722b4a4d, Model: neverendingDreamNED_bakedVae)
 
@@ -26,9 +26,9 @@ Prompt 在人工智能语言生成领域中扮演着重要的角色，因为它�
 
 <table>
   <tr>
-    <td><img src="./prompt-patterns/backview-new-1.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/backview-new-2.png" width="256px" height="256px"></td>
-    <td><img src="./prompt-patterns/backview-new-3.png" width="256px" height="256px"></td>
+    <td><img src="images/backview-new-1.png" width="256px" height="256px"></td>
+    <td><img src="images/backview-new-2.png" width="256px" height="256px"></td>
+    <td><img src="images/backview-new-3.png" width="256px" height="256px"></td>
    </tr> 
 </table>
 
@@ -42,7 +42,7 @@ PS：感谢我老婆提供的照片。
 
 现在，我们脑海中出现一个场景：
 
-![](./output/sample.jpg)
+![](images/sample.jpg)
 
 接着，用文本来抽象它。在这里，我结合一下 Stable Diffusion 来讲述一下过程。
 
@@ -63,7 +63,7 @@ PS：感谢我老婆提供的照片。
 
 重复了 N 次之后，你会得到你想要的成功的照片，当然也会有失败的出现（因为没有配置 negative prompt 过滤失败的情况）：
 
-![Failure](./output/failure-seeds.jpeg)
+![Failure](images/failure-seeds.jpeg)
 
 但是，熟悉各种搜索引擎的关键词的或者 NLP 的你，肯定知道，上面的大部分可能是废话，可以减化为如下的词，并添加一些专用的模型词汇，如`black hair`, `hand before body`, `no hand`, `bodycon dress`：
 
@@ -73,9 +73,9 @@ PS：感谢我老婆提供的照片。
 
 <table>
   <tr>
-    <td><img src="./output/women-backview-1.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/women-backview-3.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/women-backview-4.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/women-backview-1.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/women-backview-3.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/women-backview-4.jpeg" width="256px" height="384px"></td>
    </tr> 
 </table>
 
@@ -88,7 +88,7 @@ PS：感谢我老婆提供的照片。
 
 最后，生成的图片如下：
 
-![Openpose](output/image-with-hed.png)
+![Openpose](images/image-with-hed.png)
 
 在我写完文章的时候，又修改了一下 prompt：
 
@@ -103,14 +103,14 @@ PS：感谢我老婆提供的照片。
 
 <table>
   <tr>
-    <td><img src="./output/samples/01.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/02.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/04.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/01.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/02.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/04.jpeg" width="256px" height="384px"></td>
    </tr> 
    <tr>
-    <td><img src="./output/samples/05.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/06.jpeg" width="256px" height="384px"></td>
-    <td><img src="./output/samples/08.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/05.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/06.jpeg" width="256px" height="384px"></td>
+    <td><img src="images/samples/08.jpeg" width="256px" height="384px"></td>
   </tr>
 </table>
 
@@ -147,7 +147,7 @@ PS：感谢我老婆提供的照片。
 
 足够丰富的描述，可以帮助 AI 理解描述我们的需求：
 
-![Better Quality](./output/better.jpeg)
+![Better Quality](images/better.jpeg)
 
 上图为 AI 生成，也是同样场景下，不屏蔽的结果 —— 其原因是大部分的模型库加入了很多 18 禁的内容。
 
@@ -184,13 +184,13 @@ phodal：我想写一篇文章，主题是《如何用 ChatGPT 写一篇文章�
 
 示例：
 
-![](./output/chatgpt-writing-article.png)
+![](images/chatgpt-writing-article.png)
 
 但是，这样的内容并非我们想要的。
 
 而在这个标题里，其实 ChatGPT 已经理解了，如何写一篇文章，换作是一个冷门的话题，他就不知道了。在此时，我们需要构建一个更丰富的上下文：
 
-![关注点驱动](prompt/focus-driven.png)
+![关注点驱动](images/focus-driven.png)
 
 在这时，ChatGPT 给出的步骤依旧是错的，我们需要继续纠正。所以，我们可以考虑在一开始给一个完整的上下文：
 
@@ -211,7 +211,7 @@ phodal：我想写一篇文章，主题是《如何用 ChatGPT 写一篇文章�
 
 如此一来，我们提供的上下文就会更加准确，就可以看到一个范例：
 
-![Demo](prompt/chatgpt-article-demo.png)
+![Demo](images/chatgpt-article-demo.png)
 
 基于这个范例，可以思考我们的内容如何编写。
 
@@ -219,7 +219,7 @@ phodal：我想写一篇文章，主题是《如何用 ChatGPT 写一篇文章�
 
 ChatGPT 本身构建了一个框架，我们可以再输入一个有用的框架，以构建简单的反馈回路。于是，我开始教他 DDD，然后相互学习：
 
-![DDD Copilot](prompt/ddd-copilot-1.png)
+![DDD Copilot](images/ddd-copilot-1.png)
 
 不过，ChatGPT 和上面的图片一样，经常丢失一些上下文。
 
@@ -254,7 +254,7 @@ phodal: 在这个 TicketOrder 聚合里，他应该包含哪些 API ？
 
 GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，它可以根据你的代码，生成更多的代码。
 
-![Samples](prompt/github-copilot-1.png)
+![Samples](images/github-copilot-1.png)
 
 所以，对于 Markdown 本身来说，它也能提供一些帮助。当然了，在这方向它没有 ChatGPT 那么强大，经常会出现一些奇怪的重复代码。
 
@@ -264,7 +264,7 @@ GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，
 
 如结合 Chat GPT 我们可以完成代码的前置设计（当然有些不靠谱）：
 
-![ChatGPT DDD](prompt/chatgpt-ddd.png)
+![ChatGPT DDD](images/chatgpt-ddd.png)
 
 复制生成的 API，写行注释告诉 Copilot：`convert to markdown table`，然后我们就有了：
 
@@ -279,7 +279,7 @@ GitHub Copilot 是 GitHub 2021 年 8 月推出的一个 AI 代码生成工具，
 
 接下来，我们可以使用 Spring + Copilot 来生成一些代码片段，以便于我们进行修改：
 
-![github-copilot Sample](prompt/github-sample-2.png)
+![github-copilot Sample](images/github-sample-2.png)
 
 在有足够类相关信息的情况下，诸如于，我们提供一个注释：
 
@@ -293,7 +293,7 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 它生成的代码会更加准确：
 
-![GitHub sample 4](prompt/github-sample-4.png)
+![GitHub sample 4](images/github-sample-4.png)
 
 而如果我们添加了对应的 Exception 的处理注释：`check the schedule is valid, the seats are available, then create the order, if the schedule is not valid, throw NotScheduleAvailableException`，代码进一步转化为：
 
@@ -318,7 +318,7 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 在另外一些场景下，如果你的函数名和参数名都是英文，那么 Copilot 生成的代码也会更加准确：
 
-![GitHub sample 5](prompt/github-sample-5.png)
+![GitHub sample 5](images/github-sample-5.png)
 
 而在单元测试的场景下，Copilot 更加强大和智能，它能够根据你的测试代码，生成更多的测试代码。
 
