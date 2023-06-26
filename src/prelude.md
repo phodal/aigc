@@ -25,6 +25,10 @@
 
 ![微信公众号](images/qrcode.jpg)
 
+加入微信群一起讨论
+
+![微信群](images/wechat-group.jpg)
+
 我们发起的相关开源项目如下：
 
 | 名称                                                                   | 描述                                                                                       | 类型          | Stars |
