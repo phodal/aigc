@@ -6,10 +6,6 @@
 2. 根据用户故事生成用户故事。
 3. 训练 Alpaca LoRA。
 
-如下所示：
-
-![](images/alpaca-user-story-lora.jpeg)
-
 ### 步骤 1. 生成用户任务
 
 1. 调用 OpenAI 按分类创建用户任务。prompt 如下：
