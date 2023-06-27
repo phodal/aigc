@@ -2,10 +2,9 @@
 
 ## LLM 应用开发模式：Stream 封装
 
-Kotlin 实现
+### 服务端 API 调用：Kotlin 实现
 
 机制：结合 callbackFlow 来实现
-
 
 ```kotlin
 fun stream(text: String): Flow<String> {
@@ -36,7 +35,7 @@ fun stream(text: String): Flow<String> {
 }
 ```
 
-TypeScript 实现
+## 客户端 API 调用：TypeScript 实现
 
 机制：依赖于 Vercel 的 AI 库，提供对于 Stream 的封装
 
@@ -72,4 +71,33 @@ export async function stream(apiKey: string, messages: Message[], isStream: bool
 
   return new StreamingTextResponse(stream)
 }
+```
+
+### 客户端 UI 实现：Fetch
+
+```typescript
+const decoder = new TextDecoder()
+export function decodeAIStreamChunk(chunk: Uint8Array): string {
+  return decoder.decode(chunk)
+}
+
+ await fetch("/api/action/tooling", {
+    method: "POST",
+    body: JSON.stringify(tooling),
+  }).then(async response => {
+    onResult(await response.json())
+    let result = ""
+    const reader = response.body.getReader()
+    while (true) {
+      const { done, value } = await reader.read()
+      if (done) {
+        break
+      }
+
+      result += decodeAIStreamChunk(value)
+      onResult(result)
+    }
+
+    isPending = false
+  });
 ```
