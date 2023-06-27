@@ -30,6 +30,68 @@ Question: Introduce the following system: https://github.com/archguard/ddd-monol
 
 这里的 `Question` 便是用户的输入，然后再调用对应的 `introduce_system` 函数进行分析。
 
+## LLM 应用开发模式：DSL 动态运行时 
+
+与事实能力相比，我们更信任 LLM 的编排能力，因此我们在 Co-mate 中采用了 DSL 的方式来编排函数，这样可以更加灵活的编排函数。
+
+为了支撑这样的能力，我们在 Co-mate 中引入了 Kotlin 作为 DSL 的运行时：
+
+```kotlin
+// 初始化运行时
+val repl = KotlinInterpreter()
+val mvcDslSpec = repl.evalCast<FoundationSpec>(InterpreterRequest(code = mvcFoundation))
+
+// 从用户的输入中获取 action
+val action = ComateToolingAction.from(action.lowercase())
+
+// 添加默认的 DSL spec
+if (action == ComateToolingAction.FOUNDATION_SPEC_GOVERNANCE) {
+    comateContext.spec = mvcDslSpec
+}
+```
+
+对应的 DSL 示例（由 ChatGPT 根据 DDD 版本 spec 生成）：
+
+```kotlin
+foundation {
+    project_name {
+        pattern("^([a-z0-9-]+)-([a-z0-9-]+)(-common)?\${'$'}")
+        example("system1-webapp1")
+    }
+
+    layered {
+        layer("controller") {
+            pattern(".*\\.controller") { name shouldBe endsWith("Controller") }
+        }
+        layer("service") {
+            pattern(".*\\.service") {
+                name shouldBe endsWith("DTO", "Request", "Response", "Factory", "Service")
+            }
+        }
+        layer("repository") {
+            pattern(".*\\.repository") { name shouldBe endsWith("Entity", "Repository", "Mapper") }
+        }
+
+        dependency {
+            "controller" dependedOn "service"
+            "controller" dependedOn "repository"
+            "service" dependedOn "repository"
+        }
+    }
+
+    naming {
+        class_level {
+            style("CamelCase")
+            pattern(".*") { name shouldNotBe contains("${'$'}") }
+        }
+        function_level {
+            style("CamelCase")
+            pattern(".*") { name shouldNotBe contains("${'$'}") }
+        }
+    }
+}
+```
+
 ## LLM 应用开发模式：本地小模型
 
 在 Co-mate 中，我们在本地引入了 SentenceTransformer 来处理用户的输入，优在本地分析、匹配用户的输入，并处理。当匹配到结果后直接调用本地的函数，当匹配不到结果时调用远端的处理函数来处理。
@@ -178,7 +240,7 @@ fun stream(text: String): Flow<String> {
 }
 ```
 
-## 客户端 API 调用：TypeScript 实现
+### 客户端 API 调用：TypeScript 实现
 
 机制：依赖于 Vercel 的 AI 库，提供对于 Stream 的封装
 
