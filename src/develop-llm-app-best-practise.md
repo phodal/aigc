@@ -1,5 +1,35 @@
 # LLM 应用示例：最佳实践示例
 
+## LLM 应用开发模式：轻量级 API 编排
+
+在 LangChain 中使用了思维链的方式来选择合适的智能体（Agent），在 Co-mate 中，我们也是采取了类似的设计，在本地构建好函数，然后交由
+LLM 来分析用户的输入适合调用哪个函数。
+
+如下是我们的 prompt 示例：
+
+```
+Answer the following questions as best you can. You have access to the following tools:
+
+introduce_system: introduce_system is a function to introduce a system.
+
+Use the following format:
+
+Question: the input question you must answer
+Thought: you should always think about what to do
+Action: the action to take, should be one of [introduce_system]
+Action Input: the input to the action
+Observation: the result of the action
+... (this Thought/Action/Action Input/Observation can repeat N times)
+Thought: I now know the final answer
+Final Answer: the final answer to the original input question
+
+Begin!
+
+Question: Introduce the following system: https://github.com/archguard/ddd-monolithic-code-sample
+```
+
+这里的 `Question` 便是用户的输入，然后再调用对应的 `introduce_system` 函数进行分析。
+
 ## LLM 应用开发模式：本地小模型
 
 在 Co-mate 中，我们在本地引入了 SentenceTransformer 来处理用户的输入，优在本地分析、匹配用户的输入，并处理。当匹配到结果后直接调用本地的函数，当匹配不到结果时调用远端的处理函数来处理。
@@ -8,7 +38,7 @@ HuggingFace: [https://huggingface.co/sentence-transformers](https://huggingface.
 
 在原理上主要是参考了 GitHub Copilot、 Bloop 的实现，通过本地的小模型来处理用户的输入，然后再通过远端的大模型来处理用户的输入。
 
-### Rust 实现示例 
+### Rust 实现示例
 
 Rust 相关示例：[https://github.com/unit-mesh/unit-agent](https://github.com/unit-mesh/unit-agent)
 
@@ -190,27 +220,28 @@ export async function stream(apiKey: string, messages: Message[], isStream: bool
 
 ```typescript
 const decoder = new TextDecoder()
+
 export function decodeAIStreamChunk(chunk: Uint8Array): string {
   return decoder.decode(chunk)
 }
 
- await fetch("/api/action/tooling", {
-    method: "POST",
-    body: JSON.stringify(tooling),
-  }).then(async response => {
-    onResult(await response.json())
-    let result = ""
-    const reader = response.body.getReader()
-    while (true) {
-      const { done, value } = await reader.read()
-      if (done) {
-        break
-      }
-
-      result += decodeAIStreamChunk(value)
-      onResult(result)
+await fetch("/api/action/tooling", {
+  method: "POST",
+  body: JSON.stringify(tooling),
+}).then(async response => {
+  onResult(await response.json())
+  let result = ""
+  const reader = response.body.getReader()
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) {
+      break
     }
 
-    isPending = false
-  });
+    result += decodeAIStreamChunk(value)
+    onResult(result)
+  }
+
+  isPending = false
+});
 ```
