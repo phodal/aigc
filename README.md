@@ -1,4 +1,4 @@
-# 构筑大语言模型应用：真实世界应用案例
+# 构筑大语言模型应用：应用开发与架构设计
 
 > aka. Unlocking the Potential of Large Language Models: Real-World Use Cases
 
