@@ -25,8 +25,7 @@
 - [LLM 应用示例：AI + DevOps](./develop-llm-app-example-ai-devops.md)
     - [工具示例：AutoDev](./develop-llm-app-example-autodev.md)
     - [面临的挑战](./aidevops-challenges.md)
-- [LLM 应用示例：Co-mate 难点解析](./develop-llm-app-example-comate.md)
-
+- [LLM 应用示例：最佳实践示例](./develop-llm-app-best-practise.md)
 
 # LLM 应用手册 - 微调 + LLMOps篇
 
