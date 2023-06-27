@@ -106,7 +106,7 @@ function calcAnimals(heads, legs) {
 
 仅就当前而言 AI 的上下文能力，限制了 AI 解决复杂问题的能力。所以，它无法**一次性解决**复杂、中大型的问题，甚至于小型项目都存在一定的难度。同样的，对于人类来说，也存在这样的局限性，只是人类的问题是**领域知识有限**。
 
-步骤详细见：[DDD Sample]([https://github.com/phodal/prompt-patterns/blob/master/ddd.sample.md](https://github.com/phodal/prompt-patterns/blob/master/ddd.sample.md))
+步骤详细见：[DDD Sample](https://github.com/phodal/prompt-patterns/blob/master/ddd.sample.md)
 
 所以，作为编程核心的人类大脑，需要为机器设计一下工序，即每一步应该怎么做。所以，这个时候，就回到了 **DDD**（领域驱动设计）擅长的问题：
 
