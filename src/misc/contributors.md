@@ -6,7 +6,7 @@
 
 GitHub：[https://github.com/phodal](https://github.com/phodal)
 
-ChatGPT 编写的介绍：
+ChatGPT 编写的趣味十足的介绍：
 
 > 让我们介绍一下黄峰达，这位技术巨匠比大多数凡人都会写代码。他是 Thoughtworks China
 > 的开源领袖，但我们更喜欢称他为 IDE、云开发、DevOps 和编译相关领域的绝地大师。他写了太多本技术书籍，我们数不过来了。他自称是个极客、创作者和作家，喜欢在
@@ -20,6 +20,7 @@ ChatGPT 编写的介绍：
 - 合作翻译：《物联网实战指南》、《Arduino编程:实现梦想的工具和技术》
 
 ### 行长
+
 GitHub：[https://github.com/isixline](https://github.com/isixline)
 
 Copilot 努力给出的简介：
