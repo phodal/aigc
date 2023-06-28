@@ -3,20 +3,7 @@
 设计 DSL 的目的，在于让开发者可以用更简单的方式来表达自己的想法。DSL 通常是一种领域特定语言，它的语法和语义都是针对某个特定领域而设计的。
 除了具备很好的易读性，作为一个 LLM 与机器的语言，它还应该具备易写性。
 
-如下是一个由 LLM 生成的 DSL 示例：
-
-```yml
-EventStorming:
-  Domain { Name: "电影订票系统" }
-                   Event { Name: "用户提交订单" }
-                                   Triggered By: "用户选择电影、场次、座位，确认订单"
-                                   Description: "用户提交订单，包括所选电影、场次、座位等信息"
-                                   Actors: [ "用户" ]
-                                   Action: "将用户提交的订单信息保存到订单数据库中"
-                                   Outcome: "订单状态被标记为已提交"
-```
-
-## 常规 DSL
+## 常规 DSL：数据格式 DSL
 
 常规 DSL，诸如于 JSON、YAML、XML 等，是一种用于描述数据的语言。
 
@@ -267,12 +254,12 @@ ContextMap:
 ```yaml
 EventStorming:
   Domain { Name: "电影订票系统" }
-                   Event { Name: "用户提交订单" }
-                                   Triggered By: "用户选择电影、场次、座位，确认订单"
-                                   Description: "用户提交订单，包括所选电影、场次、座位等信息"
-                                   Actors: [ "用户" ]
-                                   Action: "将用户提交的订单信息保存到订单数据库中"
-                                   Outcome: "订单状态被标记为已提交"
+     Event { Name: "用户提交订单" }
+         Triggered By: "用户选择电影、场次、座位，确认订单"
+         Description: "用户提交订单，包括所选电影、场次、座位等信息"
+         Actors: [ "用户" ]
+         Action: "将用户提交的订单信息保存到订单数据库中"
+         Outcome: "订单状态被标记为已提交"
 ```
 
 第五个问题……
