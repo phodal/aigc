@@ -19,7 +19,7 @@ ChatGPT 编写的介绍：
 - 出版纸质物：《自己动手设计物联网》、《全栈应用开发：精益实践》、《前端架构：从入门到微前端》
 - 合作翻译：《物联网实战指南》、《Arduino编程:实现梦想的工具和技术》
 
-### 刘航
+### 行长
 GitHub：[https://github.com/isixline](https://github.com/isixline)
 
 Copilot 努力给出的简介：
