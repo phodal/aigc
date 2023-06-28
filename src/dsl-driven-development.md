@@ -110,12 +110,46 @@ function messageToThought (splitContent: string[]) {
 
 - 与编程语言的语法相同：内部DSL的语法与宿主编程语言的语法相同或相似，因此可以直接嵌入到宿主编程语言的代码中，不需要额外的解析器或转换器。这使得内部DSL更容易理解、编写和维护，因为开发人员可以利用已经熟悉的编程语言知识和工具。
 - 直接嵌入到宿主语言：内部DSL可以直接嵌入到宿主编程语言的代码中，并与宿主语言的功能和库进行无缝集成。这意味着可以在内部DSL中直接调用宿主语言的函数、类和其他特性，从而充分利用宿主语言的强大功能和生态系统。
-- 基于宿主语言的类型系统和语义：由于内部DSL直接嵌入到宿主编程语言中，它可以完全利用宿主语言的类型系统和语义。这使得内部DSL可以提供更严格的类型检查和编译时验证，并且可以与宿主语言的工具链和开发环境无缝集成，例如代码补全、静态分析和调试。
+-
+基于宿主语言的类型系统和语义：由于内部DSL直接嵌入到宿主编程语言中，它可以完全利用宿主语言的类型系统和语义。这使得内部DSL可以提供更严格的类型检查和编译时验证，并且可以与宿主语言的工具链和开发环境无缝集成，例如代码补全、静态分析和调试。
 - 可扩展性：内部DSL可以利用宿主编程语言的灵活性和可扩展性进行自定义和扩展。开发人员可以使用宿主语言的特性来定义新的DSL构造，增加DSL的表达能力和领域特定性。
-
 
 以Kotlin语言为例，它提供了强大的内部DSL支持。我们可以利用Kotlin的语法和特性来创建具有领域特定性的DSL，并将其嵌入到Kotlin代码中。
 详细可以参考：https://kotlinlang.org/docs/type-safe-builders.html
+
+### 简单示例
+
+让我们看一个简单的例子来说明内部DSL的用法。假设我们正在开发一个配置库，用于配置不同环境下的应用程序设置。我们可以使用内部DSL来定义和使用配置：
+
+```kotlin
+class AppConfig {
+    var port: Int = 8080
+    var dbName: String = "mydb"
+    var username: String = "admin"
+    var password: String = "password"
+}
+
+fun configure(block: AppConfig.() -> Unit): AppConfig {
+    val config = AppConfig()
+    config.block()
+    return config
+}
+
+val appConfig = configure {
+    port = 9000
+    dbName = "productiondb"
+    username = "user"
+    password = "securepassword"
+}
+```
+
+在上面的例子中，我们定义了一个名为AppConfig的类，表示应用程序的配置。然后，我们定义了一个configure函数，它接受一个扩展函数类型的参数，
+并在该函数中创建了一个AppConfig对象。通过调用block函数来执行扩展函数，并在其中进行配置。
+
+在使用内部DSL时，我们可以直接在代码中使用自然语言或领域特定的语法来配置应用程序。在示例中，我们调用configure函数并提供一个Lambda表达式作为参数，
+通过设置属性来配置AppConfig对象。
+
+### ArchGuard Co-mate 示例
 
 在 Co-mate 中，我们便主要采用这种方式来描述软件的架构：
 
