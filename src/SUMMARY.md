@@ -8,14 +8,14 @@
     - [实时软件生成](./future-realtime-software-generation.md)
     - [Unit Mesh 架构](./future-unit-mesh.md)
 
-# LLM 应用手册 - 基础篇：Prompt
+# LLM 应用手册 - 基础篇
 
 - [理解 Prompt](./prompt-understand.md)
 - [Prompt 编写模式](./prompt-patterns.md)
     - [Prompt 模板](./prompt-template.md)
 - [模式：Prompt 即代码](./prompt-as-code.md)
 
-# LLM 应用手册 - 应用开发模式
+# LLM 应用手册 - 进阶篇 - 开发工序
 
 - [LLM 应用开发之前](./develop-llm-app-setup.md)
     - [设计 LLM 效果验证实验](./develop-llm-design-verification.md)
@@ -27,18 +27,7 @@
     - [面临的挑战](./aidevops-challenges.md)
 - [LLM 应用示例：最佳实践示例](./develop-llm-app-best-practise.md)
 
-# LLM 应用手册 - 微调 + LLMOps篇
-
-- [微调之前的准备](./finetune-setup.md)
-- [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
-- [微调示例集：AI + DevOps](./finetune-bizdevops.md)
-    - [数据准备：四种方法](./finetune-bizdevops-data.md)
-    - [示例：用户故事编写](./finetune-bizdevops-user-story.md)
-    - [示例：辅助代码生成](./finetune-bizdevops-codegen.md)
-
-# LLM 应用手册 - 训练篇（TBD）
-
-# LLM 应用手册 - 架构设计篇
+# LLM 应用手册 - 进阶篇 - 架构设计
 
 - [LLM 应用架构设计原则](./llm-architecture.md)
     - [原子能力映射](./llm-arch-atomic-capability-mapping.md)
@@ -49,10 +38,22 @@
 - [LLM 应用架构：ArchGuard Co-mate](./llm-arch-archguard-comate.md)
 - [LLM 应用架构：GitHub Copilot 分析](./llm-arch-github-copilot.md)
 
-# LLM 应用手册 - 自保篇
+# LLM 应用手册 - 应用篇 - 微调 + LLMOps
+
+- [微调之前的准备](./finetune-setup.md)
+- [微调模式：三阶六步 + LLMOps](./finetune-llm-ops.md)
+- [微调示例集：AI + DevOps](./finetune-bizdevops.md)
+    - [数据准备：四种方法](./finetune-bizdevops-data.md)
+    - [示例：用户故事编写](./finetune-bizdevops-user-story.md)
+    - [示例：辅助代码生成](./finetune-bizdevops-codegen.md)
+
+# LLM 应用手册 - 应用篇 - 训练篇（TBD）
+
+
+# LLM 应用手册 - 如何自保
 
 - [LLM 自保](./6-llm-self-guard.md)
 
-# LLM 应用手册 - 名词解释篇
+# LLM 应用手册 - 名词解释
 
 - [LLM 名词解释](./6-llm-glossary.md)
