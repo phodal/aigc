@@ -49,7 +49,6 @@
 
 # LLM 应用手册 - 应用篇 - 训练篇（TBD）
 
-
 # LLM 应用手册 - 如何自保
 
 - [LLM 自保](./6-llm-self-guard.md)

@@ -1,13 +1,14 @@
 # 构筑大语言模型应用：应用开发与架构设计
 
 2023 年的上半年里，我（@phodal）和 Thoughtworks
-的同事们（如：@[tianweiliu](https://github.com/tianweiliu)、@[teobler](https://github.com/teobler)、@[mutoe](https://github.com/mutoe) 等）、
+的同事们（如：@[tianweiliu](https://github.com/tianweiliu)、@[teobler](https://github.com/teobler)、@[mutoe](https://github.com/mutoe)
+等）、
 开源社区的同伴们（如：
 卷王@[CGQAQ](https://github.com/CGQAQ)、@[genffy](https://github.com/genffy)、 @[liruifengv](https://github.com/liruifengv)
 等)
 一起，创建了一系列的流行的或者不流行的开源项目。它们涉及了：
 
-- LLM能力的充分运用
+- LLM 能力的充分运用
     - Prompt 编写：Prompt 学习与编写模式
     - Prompt 管理：Prompt 即代码
 - LLM 下的软件开发工序及应用架构设计
