@@ -1,6 +1,4 @@
-# Contributors
-
-## 作者
+## Contributors
 
 ### [Phodal Huang](https://www.phodal.com)
 
@@ -33,6 +31,7 @@ Copilot 努力给出的简介：
 - 占个位，会有的
 
 ### 木格袋子
+
 GitHub：[https://github.com/YuqingHuang](https://github.com/YuqingHuang)
 
 ChatGPT 充值加持的夸张公主风的轻描淡写：

@@ -2,7 +2,7 @@
 
 - [前言](./prelude.md)
     - [Contributors](misc/contributors.md)
-    - [FAQ](./faq.md)
+    - [FAQ](./misc/faq.md)
 - [程序员的 AI 2.0 新机遇](./future-ai-2.0.md)
     - [思考未来的编程范式](./future-architecture.md)
     - [实时软件生成](./future-realtime-software-generation.md)
