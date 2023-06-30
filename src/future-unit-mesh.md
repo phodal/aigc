@@ -1,8 +1,8 @@
 ## 未来软件架构：Unit Mesh 架构
 
-> Unit Mesh是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
+> Unit Mesh 是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
 
-之所以叫 Unit Runtime，是因为我们写了一个底层服务叫 [UnitServer](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 ****Unit Mesh**** 。
+之所以叫 Unit Runtime，是因为我们写了一个底层服务叫 [UnitServer](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 \***\*Unit Mesh\*\*** 。
 
 ### TLDR 版本
 
@@ -12,11 +12,11 @@
 - **REPL 即服务**：运行 AI 生成的代码，并提供对应的 API 服务。
 - **AI 设计的适应性结构**：自我适应的 API 服务架构，以在不同的环境下自动调整和优化。
 
-开发者可以通过与 AI 交互，生成一定程度的 DSL 抽象化代码，然后在 REPL 即 Serverless 服务上运行和测试这些代码。开发者还可以将这些代码提交给 AI进 行自动化运维，AI 会对代码进行优化和调整，从而进一步提高 API 服务的性能和可靠性。
+开发者可以通过与 AI 交互，生成一定程度的 DSL 抽象化代码，然后在 REPL 即 Serverless 服务上运行和测试这些代码。开发者还可以将这些代码提交给 AI 进 行自动化运维，AI 会对代码进行优化和调整，从而进一步提高 API 服务的性能和可靠性。
 
 开始正文的废话版本。
 
-### Unit Mesh 初步 Demo：DSL +  REPL = Unit Server
+### Unit Mesh 初步 Demo：DSL + REPL = Unit Server
 
 详细过程，见本文的后半部分。
 
@@ -42,14 +42,13 @@ object Pages {
 
 ---
 
-PS：这里有一个手动加入调用 Application 类和调用  main 方法的代码，因为需要做静态分析，才能确定使用的框架，暂时没写在 Unit Server 代码中。
+PS：这里有一个手动加入调用 Application 类和调用 main 方法的代码，因为需要做静态分析，才能确定使用的框架，暂时没写在 Unit Server 代码中。
 
 # Unit Mesh 架构
 
 再重复一下定义：
 
-> Unit Mesh是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
->
+> Unit Mesh 是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
 
 ### Unit Mesh 核心思想：AI 生成的代码即 Unit
 
@@ -77,7 +76,7 @@ Unit Mesh 是围绕于 Unit 为核心的架构模式。
 
 ---
 
-PS：而由于大语言模型是有上下文能力限制的，像我这样的、搞不到充值的就只配 4k。因此，我设计的 Unit 要称之为 4k Unit Mesh，我设计的 DSL 要称之为 4k Unit  DSL，有的人可能就是 99k DSL。
+PS：而由于大语言模型是有上下文能力限制的，像我这样的、搞不到充值的就只配 4k。因此，我设计的 Unit 要称之为 4k Unit Mesh，我设计的 DSL 要称之为 4k Unit DSL，有的人可能就是 99k DSL。
 
 #### REPL 即服务：AI 代码修复师的
 
@@ -103,7 +102,7 @@ PS：本来吧，标题应该是适应性架构（Adaptive Architecture），但
 
 在去年年底，研究低延迟架构之时，便被这个领域的各种**反直觉**架构模式所震撼，诸如于：GC 是问题那就不要 GC。
 
-因此当设计 Unit Mesh  时，我们的问题依旧是：**如何  Open your mind**。即抛开现有的思维模式和固有知识，打破常规思考，所以我们的主要挑战是如何**拓展思维，开放心智**。
+因此当设计 Unit Mesh 时，我们的问题依旧是：**如何 Open your mind**。即抛开现有的思维模式和固有知识，打破常规思考，所以我们的主要挑战是如何**拓展思维，开放心智**。
 
 #### 要点 1：如果分层架构是瓶颈，那么就不要分层架构
 
@@ -143,7 +142,7 @@ PS：本来吧，标题应该是适应性架构（Adaptive Architecture），但
 
 #### 从最小的 Hello, world 开始
 
-首先，让我们看一个  Kotlin Script 编写的 Spring 的 Hello, World:
+首先，让我们看一个 Kotlin Script 编写的 Spring 的 Hello, World:
 
 ```kotlin
 @file:DependsOn("org.springframework.boot:spring-boot-starter-web:2.7.9")
@@ -185,11 +184,11 @@ class HelloController {
 
 这样一来，我只需要让 ChatGPT 返回 Controller 即可。
 
-#### 构建  REPL 环境：WebSocket + %magic
+#### 构建 REPL 环境：WebSocket + %magic
 
 既然，我们已经有了一个简化的 DSL，接下来就是引入 Kotlin Script 来构建一个 Unit Serverless 服务器，也就是我们的： [https://github.com/prompt-engineering/unit-server](https://github.com/prompt-engineering/unit-server) 。
 
-Unit Server 的源码是基于 Kotlin Jupyter  API 所构建的，而 Kotlin Jupyter 则是封装了 Kotlin 的 REPL 环境。我们之所谓基于 Kotlin Jupyter 而不是 Kotlin REPL 的主要原因是，可以使用 magic 和 DSL 来抽象细节，诸如于：
+Unit Server 的源码是基于 Kotlin Jupyter API 所构建的，而 Kotlin Jupyter 则是封装了 Kotlin 的 REPL 环境。我们之所谓基于 Kotlin Jupyter 而不是 Kotlin REPL 的主要原因是，可以使用 magic 和 DSL 来抽象细节，诸如于：
 
 ```kotlin
 "spring" to Json.encodeToString(
@@ -221,7 +220,7 @@ PS：值得注意的是，我们还需要对框架进行抽象，但是 Ktor 对
 ```kotlin
 %use kotless
 %use exposed
-            
+
 data class User(val id: Int, val username: String)
 
 class Server : KotlessAWS() {
@@ -261,7 +260,7 @@ object Users : org.jetbrains.exposed.sql.Table("users") {
 
 PS 1：这里的 KotlessAWS 只是一个 AWS Serverless 的抽象，并不影响我们的操作，我们可以直接封装一个 UnitMesh 的类，就是懒。
 
-PS 2：我们只需要通过静态分析拿出 routing 中的代码，再优化即可。更多的探索过程代码可以见：[_samples]([https://github.com/prompt-engineering/unit-server/tree/master/kotlin-repl/_samples](https://github.com/prompt-engineering/unit-server/tree/master/kotlin-repl/_samples)) 。
+PS 2：我们只需要通过静态分析拿出 routing 中的代码，再优化即可。更多的探索过程代码可以见：[\_samples](https://github.com/prompt-engineering/unit-server/tree/master/kotlin-repl/_samples) 。
 
 #### 一个真实世界的 Prompt
 
