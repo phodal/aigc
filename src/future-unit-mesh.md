@@ -2,17 +2,17 @@
 
 > Unit Mesh 是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
 
-之所以叫 Unit Runtime，是因为我们写了一个底层服务叫 [UnitServer](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 \***\*Unit Mesh\*\*** 。
+之所以叫 Unit Mesh，是因为我们写了一个底层服务叫 [Unit Runtime](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 \***\*Unit Mesh\*\*** 。
 
 ### TLDR 版本
 
-我们初步定义的这个版本（0.1 ，称之为 UnitGenius）的核心三个特性：
+我们初步定义的这个版本（0.1 ，称之为 UnitGenius）有三个核心特性：
 
-- **语言与框架的 DSL**（领域特定语言） 抽象：抽象非的编程语言和框架特性，以简化出错的可能性。
+- **语言与框架的 DSL**（领域特定语言） 抽象：抽象非编程语言和框架特性，以简化出错的可能性。
 - **REPL 即服务**：运行 AI 生成的代码，并提供对应的 API 服务。
 - **AI 设计的适应性结构**：自我适应的 API 服务架构，以在不同的环境下自动调整和优化。
 
-开发者可以通过与 AI 交互，生成一定程度的 DSL 抽象化代码，然后在 REPL 即 Serverless 服务上运行和测试这些代码。开发者还可以将这些代码提交给 AI 进 行自动化运维，AI 会对代码进行优化和调整，从而进一步提高 API 服务的性能和可靠性。
+开发者可以通过与 AI 交互，生成一定程度的 DSL 抽象化代码，然后在 REPL 即 Serverless 服务上运行和测试这些代码。开发者还可以将这些代码提交给 AI 进行自动化运维，AI 会对代码进行优化和调整，从而进一步提高 API 服务的性能和可靠性。
 
 开始正文的废话版本。
 
@@ -22,7 +22,9 @@
 
 前端页面：[https://prompt.phodal.com/zh-CN/click-flow/unit-mesh-unit-server/](https://prompt.phodal.com/zh-CN/click-flow/unit-mesh-unit-server/)
 
-首先，你需要克隆一下，Unit Server 的代码：[https://github.com/prompt-engineering/unit-server](https://github.com/prompt-engineering/unit-server) ，然后，选择 kotlin-repl 或者 typescript-repl 对应 Kotlin、TypeScript 两种语言。
+首先，你需要克隆一下 Unit Server 的代码：[https://github.com/prompt-engineering/unit-server](https://github.com/prompt-engineering/unit-server) 
+
+然后，选择 kotlin-repl 或者 typescript-repl 对应 Kotlin、TypeScript 两种语言。
 
 然后，按对应的 README 运行起你的 Unit Server。
 
@@ -54,9 +56,9 @@ PS：这里有一个手动加入调用 Application 类和调用 main 方法的�
 
 Unit Mesh 是围绕于 Unit 为核心的架构模式。
 
-- AI 生成 Unit。即 AI 应该生成的代码都应该是可运行的 **Unit**，上到 React 组件、下到后端服务都是可运行的。
-- 校验 Unit。由人类来检查和校验 Unit，如果 AI 生成的代码有问题，那么人类只需要修复即可。
-- Unit 自适应部署架构。在部署时，Unit 可以组成 Serverless 架构、微服务架构、单体架构、Mesh 架构，而不需要人类来干预。
+- AI 生成 Unit。即 AI 应该生成的代码都应该是可运行的 **Unit**，上到前端组件、下到后端服务都是可运行的。
+- Human 校验 Unit。由人类来检查和校验 Unit，如果 AI 生成的代码有问题，那么人类只需要修复即可。
+- Unit 自适应部署架构。在部署时 Unit 可以自行组成 Serverless 架构、微服务架构、单体架构、Mesh 架构，而不需要人类来干预。
 
 碳基嘛，就适合当一个 Verifier。
 
@@ -88,7 +90,7 @@ PS：而由于大语言模型是有上下文能力限制的，像我这样的、
 
 人类设计系统的一个缺点是，如果设计时、开发时、运行时的单元不一样，那么就会出现各种疑虑。于是，我们会偏向于设计成三态一致的架构模式，而这本身对于架构的适应性优化就是个问题。
 
-而既然，代码都是 Unit。那么，设计时可以是微服务，开发时可以是 Serverless，线上可以是单体。正如 Google 的 Service Waver 所做的事情，我们不决定运行时的架构，让你来选择。
+而既然，代码都是 Unit。那么，设计时可以是微服务，开发时可以是 Serverless，线上可以是单体。正如 Google 的 Service Waver 所做的事情：我们不决定运行时的架构，让你来选择。
 
 所以，AI 怎么运行我们的 Unit，就让 AI 来决定吧。
 
@@ -135,8 +137,8 @@ PS：本来吧，标题应该是适应性架构（Adaptive Architecture），但
 
 1. 从最小的 Hello, world 开始优化
 2. 构建一个 REPL 环境
-3. 抽象、简化设计 ← 重复。
-4. 接入真实世界的 Prompt。
+3. 抽象、简化设计 ← 重复
+4. 接入真实世界的 Prompt
 
 详细可以查看 Unit Server 和 ChatFlow 的提交纪录。
 
