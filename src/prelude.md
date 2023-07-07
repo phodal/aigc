@@ -33,19 +33,19 @@
 
 我们发起的相关开源项目如下（包括但是不限于）：
 
-| 名称                                                                         | 描述                                                                                       | 类型          | Stars |
-|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-------------|-------|
-| [理解 Prompt](https://github.com/prompt-engineering/understand-prompt)       | 基于编程、绘画、写作的 AI 探索与总结。                                                                    | 文档          | 3k    |
-| [Prompt 编写模式](https://github.com/prompt-engineering/prompt-patterns)       | 如何将思维框架赋予机器，以设计模式的形式来思考 prompt。                                                          | 文档          | 2.1 k |
-| [ClickPrompt](https://github.com/prompt-engineering/click-prompt)          | 用于一键轻松查看、分享和执行您的 Prompt。                                                                 | 应用          | 1.6k  |
-| [ChatVisualNovel](https://github.com/prompt-engineering/chat-visual-novel) | 基于ChatGPT的定制化视觉小说引擎                                                                      | 应用          | 77    | 
-| [ChatFlow](https://github.com/prompt-engineering/chat-flow)                | 打造个性化 ChatGPT 流程，构建自动化之路。                                                                | 框架          | 570   |
-| [Unit Mesh](https://github.com/unit-mesh/unit-mesh)                        | 基于 AI 为核心的软件 2.0 思想的软件架构。                                                                | 架构          | 121   | 
-| [Unit Minions](https://github.com/unit-mesh/unit-minions)                  | AI 研发提效研究：自己动手训练 LoRA                                                                    | 微调教程、指南、数据集 | 712   |
-| [Unit Runtime](https://github.com/unit-mesh/unit-runtime)                  | 一个 ChatGPT 等 AI 代码的运行环境，可一键启动并实时交互，帮助您快速构建和测试 AI 代码。                                     | 基础设施        | 89    |
-| [DevTi](https://github.com/unit-mesh/devti)                                | 基于 LLM 的微调来提供全面智能化解决方案，助力开发人员高效完成开发任务，以实现自动化用户任务拆解、用户故事生成、自动化代码生成、自动化测试生成等等。             | 微调代码        | 102   |
-| [AutoDev](https://github.com/unit-mesh/auto-dev)                           | 一款 Intellij IDEA 的 LLM/AI 辅助编程插件。AutoDev 能够与您的需求管理系统（例如 Jira、Trello、Github Issue 等）直接对接。 | IDEA 插件     | 207   |
-| [ArchGuard Co-mate](https://github.com/archguard/co-mate)                  | 基于人工智能技术的架构副驾驶、设计和治理工具                                                                   | 架构协同应用      | 25    |
+| 名称                                                                         | 描述                                                                                       | 类型          | Stars                                                                                          |
+|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------|
+| [理解 Prompt](https://github.com/prompt-engineering/understand-prompt)       | 基于编程、绘画、写作的 AI 探索与总结。                                                                    | 文档          | ![GitHub Repo stars](https://img.shields.io/github/stars/prompt-engineering/understand-prompt) |
+| [Prompt 编写模式](https://github.com/prompt-engineering/prompt-patterns)       | 如何将思维框架赋予机器，以设计模式的形式来思考 prompt。                                                          | 文档          | ![GitHub Repo stars](https://img.shields.io/github/stars/prompt-engineering/prompt-patterns)   |
+| [ClickPrompt](https://github.com/prompt-engineering/click-prompt)          | 用于一键轻松查看、分享和执行您的 Prompt。                                                                 | 应用          | ![GitHub Repo stars](https://img.shields.io/github/stars/prompt-engineering/click-prompt)      |
+| [ChatVisualNovel](https://github.com/prompt-engineering/chat-visual-novel) | 基于 ChatGPT 的定制化视觉小说引擎                                                                    | 应用          | ![GitHub Repo stars](https://img.shields.io/github/stars/prompt-engineering/chat-visual-novel) |
+| [ChatFlow](https://github.com/prompt-engineering/chat-flow)                | 打造个性化 ChatGPT 流程，构建自动化之路。                                                                | 框架          | ![GitHub Repo stars](https://img.shields.io/github/stars/prompt-engineering/chat-flow)         |
+| [Unit Mesh](https://github.com/unit-mesh/unit-mesh)                        | 基于 AI 为核心的软件 2.0 思想的软件架构。                                                                | 架构          | ![GitHub Repo stars](https://img.shields.io/github/stars/unit-mesh/unit-mesh)                  |
+| [Unit Minions](https://github.com/unit-mesh/unit-minions)                  | AI 研发提效研究：自己动手训练 LoRA                                                                    | 微调教程、指南、数据集 | ![GitHub Repo stars](https://img.shields.io/github/stars/unit-mesh/unit-minions)               |
+| [Unit Runtime](https://github.com/unit-mesh/unit-runtime)                  | 一个 ChatGPT 等 AI 代码的运行环境，可一键启动并实时交互，帮助您快速构建和测试 AI 代码。                                     | 基础设施        | ![GitHub Repo stars](https://img.shields.io/github/stars/unit-mesh/unit-runtime)               |
+| [DevTi](https://github.com/unit-mesh/devti)                                | 基于 LLM 的微调来提供全面智能化解决方案，助力开发人员高效完成开发任务，以实现自动化用户任务拆解、用户故事生成、自动化代码生成、自动化测试生成等等。             | 微调代码        | ![GitHub Repo stars](https://img.shields.io/github/stars/unit-mesh/devti)                      |
+| [AutoDev](https://github.com/unit-mesh/auto-dev)                           | 一款 Intellij IDEA 的 LLM/AI 辅助编程插件。AutoDev 能够与您的需求管理系统（例如 Jira、Trello、Github Issue 等）直接对接。 | IDEA 插件     | ![GitHub Repo stars](https://img.shields.io/github/stars/unit-mesh/auto-dev)                   |
+| [ArchGuard Co-mate](https://github.com/archguard/co-mate)                  | 基于人工智能技术的架构副驾驶、设计和治理工具                                                                   | 架构协同应用      | ![GitHub Repo stars](https://img.shields.io/github/stars/archguard/co-mate)                    |
 
 我们在 QCon
 上的演讲：[演讲：探索软件开发新工序：LLM 赋能研发效能提升](https://qcon.infoq.cn/2023/guangzhou/presentation/5319)
