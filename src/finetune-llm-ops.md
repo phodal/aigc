@@ -86,7 +86,7 @@ markdown 作为数据，但是从经常性输出 markdown 的结构和 ChatGPT �
 在训练之前，我们需要准备一些数据，对于现有的 LLM，我们通常采用如下的：instruction、input、output 的结构方式，并由人或者现有的
 AI API 来辅导我们进行数据准备。
 
-出自《**A Survey of Large Language Models》**
+出自《**[A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)**》
 
 在进行 MVP 阶段数据处理时，可以考虑多种方式结合：
 
@@ -148,6 +148,6 @@ Intellij IDEA 自带的 InlayModel，可以支持：Inline，AfterLine，Block �
 参考资料：
 
 * 《**CodeGen: An Open Large Language Model for Code with Multi-Turn Program Synthesis**》
-* 《**Evaluating Large Language Models Trained on Code》**
-* 《**A Survey of Large Language Models》**
+* 《**Evaluating Large Language Models Trained on Code**》
+* 《**[A Survey of Large Language Models](https://arxiv.org/abs/2303.18223)**》
 

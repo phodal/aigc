@@ -6,7 +6,7 @@
 
 ### 引子
 
-从 2019 年，写了那篇《[无代码编程](**[https://zhuanlan.zhihu.com/p/61288928](https://zhuanlan.zhihu.com/p/61288928))》开始，我也一直在思考，诸如于 [2021 年]([https://www.phodal.com/blog/frontend-strategy-2021/](https://www.phodal.com/blog/frontend-strategy-2021/)) 和 [2022 年]([https://www.phodal.com/blog/frontend-strategy-2023/](https://www.phodal.com/blog/frontend-strategy-2023/)) 的前端趋势总结。
+从 2019 年，写了那篇《[无代码编程]([https://zhuanlan.zhihu.com/p/61288928](https://zhuanlan.zhihu.com/p/61288928))》开始，我也一直在思考，诸如于 [2021 年]([https://www.phodal.com/blog/frontend-strategy-2021/](https://www.phodal.com/blog/frontend-strategy-2021/)) 和 [2022 年]([https://www.phodal.com/blog/frontend-strategy-2023/](https://www.phodal.com/blog/frontend-strategy-2023/)) 的前端趋势总结。
 
 先前，我并不看好当前的低代码/无代码方案，先我们来思考一下这个过程：
 

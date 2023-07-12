@@ -102,7 +102,7 @@ function messageToThought (splitContent: string[]) {
 - 可扩展性：内部DSL可以利用宿主编程语言的灵活性和可扩展性进行自定义和扩展。开发人员可以使用宿主语言的特性来定义新的DSL构造，增加DSL的表达能力和领域特定性。
 
 以Kotlin语言为例，它提供了强大的内部DSL支持。我们可以利用Kotlin的语法和特性来创建具有领域特定性的DSL，并将其嵌入到Kotlin代码中。
-详细可以参考：https://kotlinlang.org/docs/type-safe-builders.html
+详细可以参考：[https://kotlinlang.org/docs/type-safe-builders.html](https://kotlinlang.org/docs/type-safe-builders.html)
 
 ### 简单示例
 
