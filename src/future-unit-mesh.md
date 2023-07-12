@@ -2,7 +2,7 @@
 
 > Unit Mesh 是一种基于人工智能生成的分布式架构，与传统的分布式架构不同，Unit Mesh 中的服务单元 (Unit) 是由 AI 生成的，应用程序中的服务和数据抽象为一个个独立的单元，并通过统一的控制平面进行管理和部署。
 
-之所以叫 Unit Mesh，是因为我们写了一个底层服务叫 [Unit Runtime](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 \***\*Unit Mesh\*\*** 。
+之所以叫 Unit Mesh，是因为我们写了一个底层服务叫 [Unit Runtime](https://github.com/prompt-engineering/unit-runtime) ，还有参考了 Service Mesh 和 Data Mesh 架构理念，所以 AI 取建议我们叫 **Unit Mesh** 。
 
 ### TLDR 版本
 

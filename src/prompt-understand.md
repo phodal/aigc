@@ -339,22 +339,22 @@ fun createTicketOrder(@RequestBody ticketOrder: TicketOrder): String {
 
 ### AI 生态不友好
 
-诸如于 PyTorch，以前是支持 ROCm 加速的，现在的版本不行了：https://pytorch.org/get-started/locally/ 。
+诸如于 PyTorch，以前是支持 ROCm 加速的，现在的版本不行了：[https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) 。
 
 ## 本文相关资源
 
 AI 生成图片：
 
-- Stable Diffusion Webui GitHub： https://github.com/AUTOMATIC1111/stable-diffusion-webui
-- 通用的 AI 模型社区：https://huggingface.co/
-- Stable Diffusion AI 艺术模型社区：https://civitai.com/ （18 禁）
+- Stable Diffusion Webui GitHub：[https://github.com/AUTOMATIC1111/stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+- 通用的 AI 模型社区：[https://huggingface.co/](https://huggingface.co/)
+- Stable Diffusion AI 艺术模型社区：[https://civitai.com/](https://civitai.com/) （18 禁）
 
 代码模型相关：
 
-- Salesforce 模型：https://huggingface.co/Salesforce/codegen-6B-mono
-- CarpserAI： https://huggingface.co/CarperAI/diff-codegen-6b-v2
+- Salesforce 模型：[https://huggingface.co/Salesforce/codegen-6B-mono](https://huggingface.co/Salesforce/codegen-6B-mono)
+- CarpserAI： [https://huggingface.co/CarperAI/diff-codegen-6b-v2](https://huggingface.co/CarperAI/diff-codegen-6b-v2)
 
 ControlNet 加强：
 
-- 模型：https://huggingface.co/lllyasviel/ControlNet
-- 预编译：https://huggingface.co/kohya-ss/ControlNet-diff-modules
+- 模型：[https://huggingface.co/lllyasviel/ControlNet](https://huggingface.co/lllyasviel/ControlNet)
+- 预编译：[https://huggingface.co/kohya-ss/ControlNet-diff-modules](https://huggingface.co/kohya-ss/ControlNet-diff-modules)

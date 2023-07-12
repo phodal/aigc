@@ -411,7 +411,7 @@ console.log(result);
 
 ![Bootstrap](images/bootstrapping.png)
 
-TODO：重新解释，上图出自：《[Bootstrapping in Compiler Design](https://www.geeksforgeeks.org/bootstrapping-in-compiler-design/)
+TODO：重新解释，上图出自：《[Bootstrapping in Compiler Design](https://www.geeksforgeeks.org/bootstrapping-in-compiler-design/)》
 
 先看例子 1：文章
 
@@ -480,7 +480,7 @@ TODO：重新解释，上图出自：《[Bootstrapping in Compiler Design](https
 
 ### Code
 
-- https://github.com/microsoft/prompt-engine, This repo contains an NPM utility library for creating and maintaining prompts for Large Language Models (LLMs).
+- [https://github.com/microsoft/prompt-engine](https://github.com/microsoft/prompt-engine), This repo contains an NPM utility library for creating and maintaining prompts for Large Language Models (LLMs).
 
 ### 安全问题
 

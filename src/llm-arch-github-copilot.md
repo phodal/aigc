@@ -7,8 +7,7 @@ TreeSitter 的。可惜的是，直到最近才有空，研究一下它是如何
 
 ## GitHub Copilot 的上下文构建
 
-与 ChatGPT 相比，GitHub Copilot 的强大之处在于，它构建了足够多的上下文，结合其对 LLM 的训练（或微），可以写出非常精准的**生产级代码
-**。
+与 ChatGPT 相比，GitHub Copilot 的强大之处在于，它构建了足够多的上下文，结合其对 LLM 的训练（或微），可以写出非常精准的**生产级代码**。
 
 ### Copilot 的可见上下文
 
