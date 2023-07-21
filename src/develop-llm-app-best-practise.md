@@ -310,6 +310,8 @@ await fetch("/api/action/tooling", {
 
 ### 服务端实现转发： Java + Spring
 
+WebFlux + Spring Boot
+
 ```java
 @RestController
 public class ChatController {
@@ -332,6 +334,8 @@ public class ChatController {
 ```
 
 ### 服务端转发：Python
+
+FastAPI + OpenAI
 
 ```python
 
@@ -363,12 +367,7 @@ def generate_reply_stream(input_data: ChatInput):
             temperature=temperature,
             max_tokens=max_tokens,
             n=max_responses,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
             messages=[
-                {"role": "system",
-                 "content": "You are an expert creative marketer. Create a campaign for the brand the user enters."},
                 {"role": "user", "content": prompt},
             ],
             stream=True,
