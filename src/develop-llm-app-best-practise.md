@@ -307,3 +307,87 @@ await fetch("/api/action/tooling", {
   isPending = false
 });
 ```
+
+### 服务端实现转发： Java + Spring
+
+```java
+@RestController
+public class ChatController {
+
+    private WebClient webClient = WebClient.create();
+
+    @PostMapping(value = "/api/chat")
+    public Flux<StreamingResponseBody> chat(@RequestBody ChatInput input) {
+        return webClient.post()
+                .uri("http://127.0.0.1:8000/api/chat")
+                .bodyValue(input)
+                .retrieve()
+                .bodyToFlux(String.class)
+                .map(response -> outputStream -> {
+                    outputStream.write(response.getBytes());
+                    outputStream.flush();
+                });
+    }
+}
+```
+
+### 服务端转发：Python
+
+```python
+
+app = FastAPI()
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Initialize OpenAI client
+openai.api_key = OPENAI_API_KEY
+
+
+class ChatInput(BaseModel):
+    message: str
+
+
+error503 = "OpenAI server is busy, try again later"
+openai_model = "gpt-3.5-turbo"
+max_responses = 1
+temperature = 0.7
+max_tokens = 8192
+
+
+def generate_reply_stream(input_data: ChatInput):
+    prompt = input_data.message
+    try:
+        prompt = prompt
+        response = openai.ChatCompletion.create(
+            model=openai_model,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            n=max_responses,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
+            messages=[
+                {"role": "system",
+                 "content": "You are an expert creative marketer. Create a campaign for the brand the user enters."},
+                {"role": "user", "content": prompt},
+            ],
+            stream=True,
+        )
+    except Exception as e:
+        print("Error in creating campaigns from openAI:", str(e))
+        raise HTTPException(503, error503)
+    try:
+        for chunk in response:
+            current_content = chunk["choices"][0]["delta"].get("content", "")
+            yield current_content
+
+    except Exception as e:
+        print("OpenAI Response (Streaming) Error: " + str(e))
+        raise HTTPException(503, error503)
+
+
+@app.post("/api/chat", response_class=Response)
+async def chat(input_data: ChatInput):
+    return StreamingResponse(generate_reply_stream(input_data), media_type="text/event-stream")
+```
+
