@@ -318,17 +318,34 @@ public class ChatController {
 
     private WebClient webClient = WebClient.create();
 
-    @PostMapping(value = "/api/chat")
-    public Flux<StreamingResponseBody> chat(@RequestBody ChatInput input) {
-        return webClient.post()
-                .uri("http://127.0.0.1:8000/api/chat")
+    @PostMapping(value = "/api/chat", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter chat(@RequestBody ChatInput input) throws IOException {
+        SseEmitter emitter = new SseEmitter();
+
+        webClient.post()
+                .uri(REMOTE_URL)
                 .bodyValue(input)
-                .retrieve()
-                .bodyToFlux(String.class)
-                .map(response -> outputStream -> {
-                    outputStream.write(response.getBytes());
-                    outputStream.flush();
-                });
+                .exchangeToFlux(response -> {
+                    if (response.statusCode().is2xxSuccessful()) {
+                        return response.bodyToFlux(byte[].class)
+                                .map(String::new)
+                                .doOnNext(string -> {
+                                    try {
+                                        emitter.send(string);
+                                    } catch (IOException e) {
+                                        logger.error("Error while sending data: {}", e.getMessage());
+                                        emitter.completeWithError(e);
+                                    }
+                                })
+                                .doOnComplete(emitter::complete)
+                                .doOnError(emitter::completeWithError);
+                    } else {
+                        emitter.completeWithError(new RuntimeException("Error while calling remote service"));
+                    }
+                })
+                .subscribe();
+
+        return emitter;
     }
 }
 ```
@@ -338,26 +355,6 @@ public class ChatController {
 FastAPI + OpenAI
 
 ```python
-
-app = FastAPI()
-
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-
-# Initialize OpenAI client
-openai.api_key = OPENAI_API_KEY
-
-
-class ChatInput(BaseModel):
-    message: str
-
-
-error503 = "OpenAI server is busy, try again later"
-openai_model = "gpt-3.5-turbo"
-max_responses = 1
-temperature = 0.7
-max_tokens = 8192
-
-
 def generate_reply_stream(input_data: ChatInput):
     prompt = input_data.message
     try:
